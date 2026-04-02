@@ -12,11 +12,11 @@ Validates all agent files for proper formatting and structure.
 ```
 
 **Checks:**
-- ✅ File exists and is not empty
-- ✅ Has YAML frontmatter (starts with `---`)
-- ✅ Has required fields (`name:` and `description:`)
-- ✅ Has sufficient content
-- ✅ File size is reasonable
+- File exists and is not empty
+- Has YAML frontmatter (starts with `---`)
+- Has required fields (`name:` and `description:`)
+- Has sufficient content
+- File size is reasonable
 
 **Exit Codes:**
 - `0` - All validations passed

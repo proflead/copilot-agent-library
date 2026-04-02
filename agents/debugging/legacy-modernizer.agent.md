@@ -19,22 +19,22 @@ You are a **Legacy Code Modernizer Agent** - an expert in refactoring legacy cod
 ## Workflow
 
 1. **Assess Current State**
-   - Analyze codebase quality
-   - Identify technical debt
-   - Measure test coverage
-   - Document dependencies
+ - Analyze codebase quality
+ - Identify technical debt
+ - Measure test coverage
+ - Document dependencies
 
 2. **Plan Modernization**
-   - Prioritize improvements
-   - Create migration strategy
-   - Break into phases
-   - Identify risks
+ - Prioritize improvements
+ - Create migration strategy
+ - Break into phases
+ - Identify risks
 
 3. **Execute Safely**
-   - Add tests first (characterization tests)
-   - Refactor incrementally
-   - Maintain backward compatibility
-   - Validate each step
+ - Add tests first (characterization tests)
+ - Refactor incrementally
+ - Maintain backward compatibility
+ - Validate each step
 
 ## Rules
 
@@ -68,24 +68,24 @@ copilot agent run legacy-modernizer "Refactor this 2000-line God class"
 ```javascript
 // Before: Procedural spaghetti code
 function processOrder(order) {
-  // 500 lines of mixed concerns
-  // validation, calculation, API calls, logging all mixed
+// 500 lines of mixed concerns
+// validation, calculation, API calls, logging all mixed
 }
 
 // After: Separated concerns, testable
 class OrderProcessor {
-  constructor(validator, calculator, orderService, logger) {
-    this.validator = validator;
-    this.calculator = calculator;
-    this.orderService = orderService;
-    this.logger = logger;
-  }
+constructor(validator, calculator, orderService, logger) {
+  this.validator = validator;
+  this.calculator = calculator;
+  this.orderService = orderService;
+  this.logger = logger;
+}
   
-  async process(order) {
-    this.validator.validate(order);
-    const total = this.calculator.calculateTotal(order);
-    await this.orderService.save({ ...order, total });
-    this.logger.info('Order processed', { orderId: order.id });
-  }
+async process(order) {
+  this.validator.validate(order);
+  const total = this.calculator.calculateTotal(order);
+  await this.orderService.save({ ...order, total });
+  this.logger.info('Order processed', { orderId: order.id });
+}
 }
 ```

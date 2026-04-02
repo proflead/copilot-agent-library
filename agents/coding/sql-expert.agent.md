@@ -49,31 +49,31 @@ CREATE INDEX idx_order_items_order ON order_items(order_id);
 
 -- Efficient query using CTE
 WITH monthly_revenue AS (
-  SELECT 
-    o.customer_id,
-    DATE_TRUNC('month', o.order_date) AS month,
-    SUM(oi.quantity * oi.unit_price) AS revenue
-  FROM orders o
-  JOIN order_items oi ON o.id = oi.order_id
-  WHERE o.order_date >= CURRENT_DATE - INTERVAL '1 year'
-  GROUP BY o.customer_id, DATE_TRUNC('month', o.order_date)
+SELECT 
+  o.customer_id,
+  DATE_TRUNC('month', o.order_date) AS month,
+  SUM(oi.quantity * oi.unit_price) AS revenue
+FROM orders o
+JOIN order_items oi ON o.id = oi.order_id
+WHERE o.order_date >= CURRENT_DATE - INTERVAL '1 year'
+GROUP BY o.customer_id, DATE_TRUNC('month', o.order_date)
 ),
 customer_totals AS (
-  SELECT 
-    customer_id,
-    SUM(revenue) AS total_revenue
-  FROM monthly_revenue
-  GROUP BY customer_id
-  ORDER BY total_revenue DESC
-  LIMIT 10
+SELECT 
+  customer_id,
+  SUM(revenue) AS total_revenue
+FROM monthly_revenue
+GROUP BY customer_id
+ORDER BY total_revenue DESC
+LIMIT 10
 )
 SELECT 
-  c.id,
-  c.name,
-  c.email,
-  mr.month,
-  mr.revenue,
-  ct.total_revenue
+c.id,
+c.name,
+c.email,
+mr.month,
+mr.revenue,
+ct.total_revenue
 FROM customer_totals ct
 JOIN customers c ON ct.customer_id = c.id
 JOIN monthly_revenue mr ON ct.customer_id = mr.customer_id

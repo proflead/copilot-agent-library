@@ -20,20 +20,20 @@ You are a **Test Generator Agent** - an expert in creating comprehensive test su
 ## Workflow
 
 1. **Analyze Code**
-   - Understand function/class responsibilities
-   - Identify dependencies and side effects
-   - Determine edge cases and error conditions
+ - Understand function/class responsibilities
+ - Identify dependencies and side effects
+ - Determine edge cases and error conditions
 
 2. **Design Tests**
-   - Create test scenarios (happy path, edge cases, errors)
-   - Plan mocking strategy for dependencies
-   - Structure test suite logically
+ - Create test scenarios (happy path, edge cases, errors)
+ - Plan mocking strategy for dependencies
+ - Structure test suite logically
 
 3. **Generate Tests**
-   - Write clear, maintainable test code
-   - Add descriptive test names and documentation
-   - Include setup and teardown as needed
-   - Ensure tests are independent and deterministic
+ - Write clear, maintainable test code
+ - Add descriptive test names and documentation
+ - Include setup and teardown as needed
+ - Ensure tests are independent and deterministic
 
 ## Rules & Guidelines
 
@@ -78,43 +78,43 @@ jest.mock('./UserRepository');
 jest.mock('./EmailService');
 
 describe('UserService', () => {
-  let userService: UserService;
-  let mockUserRepo: jest.Mocked<UserRepository>;
-  let mockEmailService: jest.Mocked<EmailService>;
+let userService: UserService;
+let mockUserRepo: jest.Mocked<UserRepository>;
+let mockEmailService: jest.Mocked<EmailService>;
 
-  beforeEach(() => {
-    mockUserRepo = new UserRepository() as jest.Mocked<UserRepository>;
-    mockEmailService = new EmailService() as jest.Mocked<EmailService>;
-    userService = new UserService(mockUserRepo, mockEmailService);
+beforeEach(() => {
+  mockUserRepo = new UserRepository() as jest.Mocked<UserRepository>;
+  mockEmailService = new EmailService() as jest.Mocked<EmailService>;
+  userService = new UserService(mockUserRepo, mockEmailService);
+});
+
+describe('createUser', () => {
+  it('should create user and send welcome email', async () => {
+    // Arrange
+    const userData = { email: 'test@example.com', name: 'Test User' };
+    const createdUser = { id: '123', ...userData };
+    mockUserRepo.create.mockResolvedValue(createdUser);
+
+    // Act
+    const result = await userService.createUser(userData);
+
+    // Assert
+    expect(result).toEqual(createdUser);
+    expect(mockUserRepo.create).toHaveBeenCalledWith(userData);
+    expect(mockEmailService.sendWelcome).toHaveBeenCalledWith(createdUser.email);
   });
 
-  describe('createUser', () => {
-    it('should create user and send welcome email', async () => {
-      // Arrange
-      const userData = { email: 'test@example.com', name: 'Test User' };
-      const createdUser = { id: '123', ...userData };
-      mockUserRepo.create.mockResolvedValue(createdUser);
+  it('should throw error if email already exists', async () => {
+    // Arrange
+    mockUserRepo.create.mockRejectedValue(new Error('Email exists'));
 
-      // Act
-      const result = await userService.createUser(userData);
-
-      // Assert
-      expect(result).toEqual(createdUser);
-      expect(mockUserRepo.create).toHaveBeenCalledWith(userData);
-      expect(mockEmailService.sendWelcome).toHaveBeenCalledWith(createdUser.email);
-    });
-
-    it('should throw error if email already exists', async () => {
-      // Arrange
-      mockUserRepo.create.mockRejectedValue(new Error('Email exists'));
-
-      // Act & Assert
-      await expect(
-        userService.createUser({ email: 'test@example.com', name: 'Test' })
-      ).rejects.toThrow('Email exists');
-      expect(mockEmailService.sendWelcome).not.toHaveBeenCalled();
-    });
+    // Act & Assert
+    await expect(
+      userService.createUser({ email: 'test@example.com', name: 'Test' })
+    ).rejects.toThrow('Email exists');
+    expect(mockEmailService.sendWelcome).not.toHaveBeenCalled();
   });
+});
 });
 ```
 

@@ -18,7 +18,7 @@ GitHub Copilot agents work in both the CLI and IDEs (like VS Code), but each pla
 
 ### When to Use CLI
 
-✅ **Perfect for:**
+ **Perfect for:**
 - Automated workflows and scripts
 - CI/CD pipelines
 - Batch processing multiple files
@@ -26,7 +26,7 @@ GitHub Copilot agents work in both the CLI and IDEs (like VS Code), but each pla
 - Remote server work (SSH)
 - Quick one-off tasks
 
-❌ **Not ideal for:**
+ **Not ideal for:**
 - Interactive code editing
 - Real-time feedback while coding
 - Tasks needing IDE features (debugging, refactoring)
@@ -120,8 +120,8 @@ echo "Running security audit..."
 copilot agent run security-auditor "Review staged files for security issues"
 
 if [ $? -ne 0 ]; then
-    echo "Security issues found. Commit aborted."
-    exit 1
+  echo "Security issues found. Commit aborted."
+  exit 1
 fi
 
 # Check code quality
@@ -140,21 +140,21 @@ name: AI Code Review
 on: [pull_request]
 
 jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+review:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
       
-      - name: Install Copilot CLI
-        run: gh extension install github/gh-copilot
+    - name: Install Copilot CLI
+      run: gh extension install github/gh-copilot
       
-      - name: Security Review
-        run: |
-          copilot agent run security-auditor "Review PR changes for vulnerabilities"
+    - name: Security Review
+      run: |
+        copilot agent run security-auditor "Review PR changes for vulnerabilities"
       
-      - name: Code Quality Review
-        run: |
-          copilot agent run code-reviewer "Review PR for code quality issues"
+    - name: Code Quality Review
+      run: |
+        copilot agent run code-reviewer "Review PR for code quality issues"
 ```
 
 #### Example 3: Bulk File Processing
@@ -164,9 +164,9 @@ jobs:
 # Add type hints to all Python files
 
 for file in src/**/*.py; do
-    echo "Processing $file..."
-    copilot agent run python-expert "Add type hints to $file" > "${file}.tmp"
-    mv "${file}.tmp" "$file"
+  echo "Processing $file..."
+  copilot agent run python-expert "Add type hints to $file" > "${file}.tmp"
+  mv "${file}.tmp" "$file"
 done
 
 echo "All files processed!"
@@ -176,7 +176,7 @@ echo "All files processed!"
 
 ### When to Use IDE
 
-✅ **Perfect for:**
+ **Perfect for:**
 - Interactive development
 - Real-time code assistance
 - Editing existing code
@@ -184,7 +184,7 @@ echo "All files processed!"
 - Refactoring
 - Quick questions while coding
 
-❌ **Not ideal for:**
+ **Not ideal for:**
 - Automation and scripts
 - CI/CD integration
 - Batch processing
@@ -400,8 +400,8 @@ copilot agent run enhanced-planner "Plan migration to microservices" > plan.md
 ```bash
 # Add docs to all files
 for file in src/**/*.ts; do
-    copilot agent run doc-generator "Add JSDoc to $file" > "${file}.tmp"
-    mv "${file}.tmp" "$file"
+  copilot agent run doc-generator "Add JSDoc to $file" > "${file}.tmp"
+  mv "${file}.tmp" "$file"
 done
 ```
 

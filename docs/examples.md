@@ -30,20 +30,20 @@ copilot agent run code-reviewer "Review changes in this PR focusing on security,
 
 **Expected Output:**
 ```
-✅ Code Review Results:
+ Code Review Results:
 
 Security:
-- ✅ Input validation present
-- ⚠️  SQL queries use string concatenation (risk of injection)
+- Input validation present
+- SQL queries use string concatenation (risk of injection)
 - Recommendation: Use parameterized queries
 
 Performance:
-- ⚠️  N+1 query pattern in getUserPosts()
+- N+1 query pattern in getUserPosts()
 - Recommendation: Use eager loading or batch queries
 
 Best Practices:
-- ✅ Error handling implemented
-- ⚠️  Magic numbers used (e.g., setTimeout(5000))
+- Error handling implemented
+- Magic numbers used (e.g., setTimeout(5000))
 - Recommendation: Extract to configuration constants
 ```
 
@@ -92,31 +92,31 @@ copilot agent run api-designer "Design REST API for task management with:
 ### Backend API Development
 
 ```
-┌─────────────────────────────────────────┐
-│  Developer Request                      │
-│  "Create user authentication API"       │
-└──────────────┬──────────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────────┐
-│  Backend Developer Agent                │
-│                                         │
-│  1. Analyzes requirements               │
-│  2. Creates API endpoints               │
-│  3. Implements JWT authentication       │
-│  4. Adds input validation               │
-│  5. Includes error handling             │
-└──────────────┬──────────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────────┐
-│  Output Delivered                       │
-│  - auth.controller.ts                   │
-│  - auth.service.ts                      │
-│  - auth.middleware.ts                   │
-│  - auth.dto.ts                          │
-│  - auth.routes.ts                       │
-└─────────────────────────────────────────┘
+
+Developer Request                      
+"Create user authentication API"       
+
+               
+               
+
+Backend Developer Agent                
+                                         
+1. Analyzes requirements               
+2. Creates API endpoints               
+3. Implements JWT authentication       
+4. Adds input validation               
+5. Includes error handling             
+
+               
+               
+
+Output Delivered                       
+- auth.controller.ts                   
+- auth.service.ts                      
+- auth.middleware.ts                   
+- auth.dto.ts                          
+- auth.routes.ts                       
+
 ```
 
 **CLI Example:**
@@ -135,12 +135,12 @@ copilot agent run backend-developer "Create user authentication API with:
 ### Database Schema Design
 
 ```
-Request → Database Architect → Schema Design → Migrations → Documentation
-          ├─ Analyzes requirements
-          ├─ Creates ER diagram (text)
-          ├─ Defines tables & relationships
-          ├─ Adds indexes & constraints
-          └─ Generates migration scripts
+Request  Database Architect  Schema Design  Migrations  Documentation
+         Analyzes requirements
+         Creates ER diagram (text)
+         Defines tables & relationships
+         Adds indexes & constraints
+         Generates migration scripts
 ```
 
 **CLI Example:**
@@ -157,27 +157,27 @@ copilot agent run database-architect "Design PostgreSQL schema for social media 
 ```sql
 -- Users table
 CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  username VARCHAR(50) UNIQUE NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
+id SERIAL PRIMARY KEY,
+email VARCHAR(255) UNIQUE NOT NULL,
+username VARCHAR(50) UNIQUE NOT NULL,
+created_at TIMESTAMP DEFAULT NOW()
 );
 
 -- Posts table with indexes
 CREATE TABLE posts (
-  id SERIAL PRIMARY KEY,
-  user_id INT REFERENCES users(id),
-  content TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
+id SERIAL PRIMARY KEY,
+user_id INT REFERENCES users(id),
+content TEXT NOT NULL,
+created_at TIMESTAMP DEFAULT NOW()
 );
 CREATE INDEX idx_posts_user_created ON posts(user_id, created_at DESC);
 
 -- Relationships table (self-referencing)
 CREATE TABLE relationships (
-  follower_id INT REFERENCES users(id),
-  followee_id INT REFERENCES users(id),
-  created_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (follower_id, followee_id)
+follower_id INT REFERENCES users(id),
+followee_id INT REFERENCES users(id),
+created_at TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (follower_id, followee_id)
 );
 ...
 ```
@@ -187,11 +187,11 @@ CREATE TABLE relationships (
 ### E2E Test Creation
 
 ```
-Test Requirements → E2E Tester → Test Suite → CI Integration
-                    ├─ Analyzes user flow
-                    ├─ Creates page objects
-                    ├─ Implements test cases
-                    └─ Adds assertions
+Test Requirements  E2E Tester  Test Suite  CI Integration
+                   Analyzes user flow
+                   Creates page objects
+                   Implements test cases
+                   Adds assertions
 ```
 
 **CLI Example:**
@@ -211,26 +211,26 @@ copilot agent run e2e-tester "Create Playwright tests for checkout:
 ### Full-Stack Feature Development
 
 ```
-                  ┌──────────────────┐
-                  │   Orchestrator   │
-                  └────────┬─────────┘
-                           │
-           ┌───────────────┼───────────────┐
-           │               │               │
-           ▼               ▼               ▼
-    ┌──────────┐    ┌──────────┐   ┌──────────┐
-    │ Database │    │ Backend  │   │ Frontend │
-    │ Architect│    │Developer │   │Developer │
-    └─────┬────┘    └─────┬────┘   └─────┬────┘
-          │               │               │
-          │  Schema       │  API          │  UI
-          │  ▼            │  ▼            │  ▼
-          └───────────────┴───────────────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │ Test Generator│
-                    └───────────────┘
+                  
+                   Orchestrator   
+                  
+                           
+           
+                                         
+                                         
+           
+   Database      Backend      Frontend 
+   Architect    Developer    Developer 
+           
+                                        
+          Schema         API            UI
+                                        
+          
+                           
+                           
+                    
+                   Test Generator
+                    
 ```
 
 **CLI Example:**
@@ -255,8 +255,8 @@ copilot agent run orchestrator "Build user notification system:
 ### Security-First Development
 
 ```
-Developer → Orchestrator → Backend Dev → Security Auditor → Code Reviewer
-            (Coordinates)   (Implements)   (Audits)         (Final Review)
+Developer  Orchestrator  Backend Dev  Security Auditor  Code Reviewer
+          (Coordinates)   (Implements)   (Audits)         (Final Review)
 ```
 
 **CLI Example:**
@@ -281,8 +281,8 @@ copilot agent run orchestrator "Build payment processing API with security focus
 ### Design-to-Production Pipeline
 
 ```
-Figma Design → Figma to HTML → Frontend Dev → Responsive Design → E2E Tester
-               (Converts)       (Enhances)     (Optimizes)        (Validates)
+Figma Design  Figma to HTML  Frontend Dev  Responsive Design  E2E Tester
+             (Converts)       (Enhances)     (Optimizes)        (Validates)
 ```
 
 **IDE Workflow:**
@@ -317,8 +317,8 @@ copilot agent run sql-expert "Optimize this user + posts query that's causing N+
 ```sql
 -- Optimized with JOIN
 SELECT 
-  u.id, u.name, u.email,
-  p.id as post_id, p.title, p.content
+u.id, u.name, u.email,
+p.id as post_id, p.title, p.content
 FROM users u
 LEFT JOIN posts p ON u.id = p.user_id
 WHERE u.active = true
@@ -333,8 +333,8 @@ ORDER BY u.id, p.created_at DESC;
 ```css
 /* Fixed width, breaks on mobile */
 .dashboard {
-  width: 1200px;
-  display: flex;
+width: 1200px;
+display: flex;
 }
 .sidebar { width: 300px; }
 .content { width: 900px; }
@@ -349,8 +349,8 @@ copilot agent run responsive-design "Make this dashboard responsive for mobile, 
 ```css
 /* Mobile-first responsive */
 .dashboard {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 .sidebar { width: 100%; }
@@ -358,14 +358,14 @@ copilot agent run responsive-design "Make this dashboard responsive for mobile, 
 
 /* Tablet */
 @media (min-width: 768px) {
-  .dashboard { flex-direction: row; }
-  .sidebar { width: 250px; }
-  .content { flex: 1; }
+.dashboard { flex-direction: row; }
+.sidebar { width: 250px; }
+.content { flex: 1; }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .sidebar { width: 300px; }
+.sidebar { width: 300px; }
 }
 ```
 
@@ -377,11 +377,11 @@ copilot agent run responsive-design "Make this dashboard responsive for mobile, 
 ```typescript
 // UserService.ts - no tests
 export class UserService {
-  async createUser(data: CreateUserDto) {
-    const user = await this.repo.create(data);
-    await this.emailService.sendWelcome(user.email);
-    return user;
-  }
+async createUser(data: CreateUserDto) {
+  const user = await this.repo.create(data);
+  await this.emailService.sendWelcome(user.email);
+  return user;
+}
 }
 ```
 
@@ -394,35 +394,35 @@ copilot agent run test-generator "Create comprehensive Jest tests for UserServic
 ```typescript
 // UserService.test.ts
 describe('UserService', () => {
-  let service: UserService;
-  let mockRepo: jest.Mocked<UserRepository>;
-  let mockEmailService: jest.Mocked<EmailService>;
+let service: UserService;
+let mockRepo: jest.Mocked<UserRepository>;
+let mockEmailService: jest.Mocked<EmailService>;
 
-  beforeEach(() => {
-    mockRepo = { create: jest.fn() };
-    mockEmailService = { sendWelcome: jest.fn() };
-    service = new UserService(mockRepo, mockEmailService);
-  });
+beforeEach(() => {
+  mockRepo = { create: jest.fn() };
+  mockEmailService = { sendWelcome: jest.fn() };
+  service = new UserService(mockRepo, mockEmailService);
+});
 
-  it('should create user and send welcome email', async () => {
-    const input = { email: 'test@example.com', name: 'Test' };
-    const expected = { id: 1, ...input };
-    mockRepo.create.mockResolvedValue(expected);
+it('should create user and send welcome email', async () => {
+  const input = { email: 'test@example.com', name: 'Test' };
+  const expected = { id: 1, ...input };
+  mockRepo.create.mockResolvedValue(expected);
 
-    const result = await service.createUser(input);
+  const result = await service.createUser(input);
 
-    expect(mockRepo.create).toHaveBeenCalledWith(input);
-    expect(mockEmailService.sendWelcome).toHaveBeenCalledWith(input.email);
-    expect(result).toEqual(expected);
-  });
+  expect(mockRepo.create).toHaveBeenCalledWith(input);
+  expect(mockEmailService.sendWelcome).toHaveBeenCalledWith(input.email);
+  expect(result).toEqual(expected);
+});
 
-  it('should handle repository errors', async () => {
-    mockRepo.create.mockRejectedValue(new Error('DB error'));
+it('should handle repository errors', async () => {
+  mockRepo.create.mockRejectedValue(new Error('DB error'));
     
-    await expect(service.createUser(input))
-      .rejects.toThrow('DB error');
-    expect(mockEmailService.sendWelcome).not.toHaveBeenCalled();
-  });
+  await expect(service.createUser(input))
+    .rejects.toThrow('DB error');
+  expect(mockEmailService.sendWelcome).not.toHaveBeenCalled();
+});
 });
 ```
 
@@ -433,25 +433,25 @@ describe('UserService', () => {
 ### Pattern 1: API Contract-First Development
 
 ```
-┌────────────────────────────────────────────────────────┐
-│  Step 1: Design API Contract                           │
-│  copilot agent run api-designer "Design user API"      │
-│  Output: openapi.yaml                                  │
-└───────────────────────┬────────────────────────────────┘
-                        │
-        ┌───────────────┴───────────────┐
-        │                               │
-        ▼                               ▼
-┌──────────────────┐          ┌──────────────────┐
-│  Step 2: Backend │          │  Step 2: Frontend│
-│  Implementation  │          │  Client          │
-│                  │          │                  │
-│  copilot agent   │          │  copilot agent   │
-│  run backend-    │          │  run frontend-   │
-│  developer       │          │  developer       │
-│  "Implement API  │          │  "Create client  │
-│  from spec"      │          │  from OpenAPI"   │
-└──────────────────┘          └──────────────────┘
+
+Step 1: Design API Contract                           
+copilot agent run api-designer "Design user API"      
+Output: openapi.yaml                                  
+
+                        
+        
+                                       
+                                       
+          
+Step 2: Backend             Step 2: Frontend
+Implementation              Client          
+                                              
+copilot agent               copilot agent   
+run backend-                run frontend-   
+developer                   developer       
+"Implement API              "Create client  
+from spec"                  from OpenAPI"   
+          
 ```
 
 ---
@@ -460,19 +460,19 @@ describe('UserService', () => {
 
 ```
 1. Write test (describe what code should do)
-   copilot agent run test-generator "Create tests for calculateDiscount function"
+ copilot agent run test-generator "Create tests for calculateDiscount function"
 
 2. Run test (should fail - red)
-   npm test
+ npm test
 
 3. Implement feature
-   copilot agent run backend-developer "Implement calculateDiscount to pass tests"
+ copilot agent run backend-developer "Implement calculateDiscount to pass tests"
 
 4. Run test (should pass - green)
-   npm test
+ npm test
 
 5. Refactor
-   copilot agent run code-reviewer "Review calculateDiscount for improvements"
+ copilot agent run code-reviewer "Review calculateDiscount for improvements"
 ```
 
 ---
@@ -481,17 +481,17 @@ describe('UserService', () => {
 
 ```
 Developer writes code
-        ↓
+        
 copilot agent run code-reviewer "Review for obvious issues"
-        ↓
+        
 Fix identified issues
-        ↓
+        
 copilot agent run security-auditor "Security scan with OWASP focus"
-        ↓
+        
 Address vulnerabilities
-        ↓
+        
 copilot agent run test-generator "Create security-focused tests"
-        ↓
+        
 Ready for PR
 ```
 
@@ -502,31 +502,31 @@ Ready for PR
 ### Solo Developer Workflow
 
 ```
-┌──────────────┐
-│  New Feature │
-│   Request    │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐     ┌─────────────────┐
-│  Enhanced    │────→│ Implementation  │
-│  Planner     │     │ (various agents)│
-└──────────────┘     └────────┬────────┘
-                              │
-                              ▼
-                     ┌─────────────────┐
-                     │ Test Generator  │
-                     └────────┬────────┘
-                              │
-                              ▼
-                     ┌─────────────────┐
-                     │ Code Reviewer   │
-                     └────────┬────────┘
-                              │
-                              ▼
-                          ┌───────┐
-                          │ Merge │
-                          └───────┘
+
+New Feature 
+ Request    
+
+       
+       
+     
+Enhanced     Implementation  
+Planner           (various agents)
+     
+                              
+                              
+                     
+                    Test Generator  
+                     
+                              
+                              
+                     
+                    Code Reviewer   
+                     
+                              
+                              
+                          
+                         Merge 
+                          
 ```
 
 ---
@@ -535,33 +535,33 @@ Ready for PR
 
 ```
 Product Manager              Developer                    QA Engineer
-      │                          │                              │
-      ▼                          │                              │
-[@project-manager]               │                              │
-Plan sprint                      │                              │
-      │                          │                              │
-      ├─────Sprint Plan──────────→                              │
-      │                          ▼                              │
-      │                  [@orchestrator]                        │
-      │                  Build features                         │
-      │                          │                              │
-      │                          ▼                              │
-      │                  Implementation                         │
-      │                          │                              │
-      │                          ├─────Feature Ready────────────→
-      │                          │                              ▼
-      │                          │                      [@e2e-tester]
-      │                          │                      Create tests
-      │                          │                              │
-      │                          ◀──────Issues Found────────────┤
-      │                          │                              │
-      │                          ▼                              │
-      │                   [@debug-detective]                    │
-      │                      Fix issues                         │
-      │                          │                              │
-      │                          └──────Tests Pass──────────────→
-      │                                                          │
-      ◀──────────────────────Deploy──────────────────────────────┘
+                                                              
+                                                              
+[@project-manager]                                             
+Plan sprint                                                    
+                                                              
+    Sprint Plan                              
+                                                              
+                      [@orchestrator]                        
+                      Build features                         
+                                                              
+                                                              
+                      Implementation                         
+                                                              
+                              Feature Ready
+                                                              
+                                                    [@e2e-tester]
+                                                    Create tests
+                                                              
+                              Issues Found
+                                                              
+                                                              
+                       [@debug-detective]                    
+                          Fix issues                         
+                                                              
+                              Tests Pass
+                                                                
+    Deploy
 ```
 
 ---
@@ -570,29 +570,29 @@ Plan sprint                      │                              │
 
 ```
 Day 1: Architecture
-├─ @database-architect "Design schema"
-├─ @api-designer "Design REST API"
-└─ @uiux-designer "Design user flows"
+ @database-architect "Design schema"
+ @api-designer "Design REST API"
+ @uiux-designer "Design user flows"
 
 Day 2-3: Setup
-├─ @devops (Docker, K8s configs)
-├─ @cicd-expert (GitHub Actions)
-└─ @terraform-expert (Infrastructure)
+ @devops (Docker, K8s configs)
+ @cicd-expert (GitHub Actions)
+ @terraform-expert (Infrastructure)
 
 Week 1-2: Core Features
-├─ @orchestrator "Build authentication"
-├─ @orchestrator "Build user management"
-└─ @orchestrator "Build core domain features"
+ @orchestrator "Build authentication"
+ @orchestrator "Build user management"
+ @orchestrator "Build core domain features"
 
 Week 3: Testing & Quality
-├─ @test-generator "Unit tests"
-├─ @e2e-tester "E2E tests"
-└─ @security-auditor "Security review"
+ @test-generator "Unit tests"
+ @e2e-tester "E2E tests"
+ @security-auditor "Security review"
 
 Week 4: Polish & Launch
-├─ @performance-optimizer "Optimize bottlenecks"
-├─ @doc-generator "Create documentation"
-└─ @code-reviewer "Final review"
+ @performance-optimizer "Optimize bottlenecks"
+ @doc-generator "Create documentation"
+ @code-reviewer "Final review"
 ```
 
 ---
@@ -661,7 +661,7 @@ copilot agent run e2e-tester "Create tests ensuring React version matches Angula
 
 ## Tips for Creating Good Examples
 
-1. **Be Specific**: "Create login form" → "Create login form with email/password, validation, remember me checkbox, and password recovery link"
+1. **Be Specific**: "Create login form"  "Create login form with email/password, validation, remember me checkbox, and password recovery link"
 
 2. **Provide Context**: Mention tech stack, patterns to follow, existing code to reference
 

@@ -20,25 +20,25 @@ Copilot agents are specialized AI assistants that you can invoke in the GitHub C
 2. **Download the agent file** (click the agent link, then download the `.agent.md` file)
 
 3. **Copy to your agents directory**:
-   ```bash
-   # Create agents directory if it doesn't exist
-   mkdir -p ~/.github/agents
+ ```bash
+ # Create agents directory if it doesn't exist
+ mkdir -p ~/.github/agents
    
-   # Copy the downloaded agent
-   cp ~/Downloads/orchestrator.agent.md ~/.github/agents/
-   ```
+ # Copy the downloaded agent
+ cp ~/Downloads/orchestrator.agent.md ~/.github/agents/
+ ```
 
 4. **Verify installation**:
-   ```bash
-   copilot agent list
-   ```
+ ```bash
+ copilot agent list
+ ```
    
-   You should see your installed agent in the list.
+ You should see your installed agent in the list.
 
 5. **Use the agent**:
-   ```bash
-   copilot agent run orchestrator "Your task here"
-   ```
+ ```bash
+ copilot agent run orchestrator "Your task here"
+ ```
 
 ### For IDE Users (VS Code)
 
@@ -47,19 +47,19 @@ Copilot agents are specialized AI assistants that you can invoke in the GitHub C
 2. **Download the agent file**
 
 3. **Add to your workspace**:
-   ```bash
-   # Create agents directory in your project
-   mkdir -p .github/agents
+ ```bash
+ # Create agents directory in your project
+ mkdir -p .github/agents
    
-   # Copy the agent
-   cp ~/Downloads/orchestrator.agent.md .github/agents/
-   ```
+ # Copy the agent
+ cp ~/Downloads/orchestrator.agent.md .github/agents/
+ ```
 
 4. **Reload VS Code** (or restart the Copilot extension)
 
 5. **Use the agent in chat**:
-   - Open GitHub Copilot chat (`Ctrl+Shift+I` or `Cmd+Shift+I`)
-   - Type: `@orchestrator Your task here`
+ - Open GitHub Copilot chat (`Ctrl+Shift+I` or `Cmd+Shift+I`)
+ - Type: `@orchestrator Your task here`
 
 ## Your First Agent
 
@@ -174,12 +174,12 @@ The Orchestrator will:
 
 ### 1. Be Specific
 
-❌ **Too vague:**
+ **Too vague:**
 ```bash
 copilot agent run backend-developer "Build an API"
 ```
 
-✅ **Better:**
+ **Better:**
 ```bash
 copilot agent run backend-developer "Build a RESTful API for a blog platform with:
 - Posts (CRUD operations)
@@ -199,10 +199,10 @@ Include relevant information:
 
 ### 3. Use the Right Agent
 
-- **Broad tasks** → Use **Orchestrator** to coordinate specialists
-- **Focused tasks** → Use specific agents (Python Expert, Frontend Developer, etc.)
-- **Research needed** → Start with **Research Agent**
-- **Planning needed** → Start with **Enhanced Planner**
+- **Broad tasks**  Use **Orchestrator** to coordinate specialists
+- **Focused tasks**  Use specific agents (Python Expert, Frontend Developer, etc.)
+- **Research needed**  Start with **Research Agent**
+- **Planning needed**  Start with **Enhanced Planner**
 
 ### 4. Iterate
 

@@ -17,7 +17,7 @@ Detailed documentation for all 35 agents in the library, organized by category.
 
 ## Orchestration
 
-### 🎯 Orchestrator
+### Orchestrator
 
 **Best for:** Complex projects requiring multiple specialized agents
 
@@ -42,7 +42,7 @@ copilot agent run orchestrator "Build a user authentication system with React fr
 
 ---
 
-### ⚡ Workflow Manager
+### Workflow Manager
 
 **Best for:** Sequential and parallel task automation
 
@@ -65,7 +65,7 @@ copilot agent run workflow-manager "Create deployment workflow: run tests, build
 
 ---
 
-### 📊 Project Manager
+### Project Manager
 
 **Best for:** Agile project planning and sprint management
 
@@ -90,7 +90,7 @@ copilot agent run project-manager "Plan a 2-week sprint for building user notifi
 
 ## Full-Stack Development
 
-### 💻 Frontend Developer
+### Frontend Developer
 
 **Best for:** Modern UI development with React, Vue, Angular
 
@@ -116,7 +116,7 @@ copilot agent run frontend-developer "Create a data table component with sorting
 
 ---
 
-### 🔧 Backend Developer
+### Backend Developer
 
 **Best for:** Server-side logic, APIs, authentication
 
@@ -141,7 +141,7 @@ copilot agent run backend-developer "Create Express.js API for blog platform wit
 
 ---
 
-### 🌐 Full-Stack Expert
+### Full-Stack Expert
 
 **Best for:** Complete features spanning frontend and backend
 
@@ -164,7 +164,7 @@ copilot agent run fullstack-expert "Build a real-time chat feature with WebSocke
 
 ---
 
-### 📱 Mobile Developer
+### Mobile Developer
 
 **Best for:** Cross-platform mobile apps
 
@@ -187,7 +187,7 @@ copilot agent run mobile-developer "Create React Native app for fitness tracking
 
 ---
 
-### 🔗 API Designer
+### API Designer
 
 **Best for:** API architecture and documentation
 
@@ -210,7 +210,7 @@ copilot agent run api-designer "Design RESTful API for task management with Open
 
 ---
 
-### 🗄️ Database Architect
+### Database Architect
 
 **Best for:** Schema design and optimization
 
@@ -235,7 +235,7 @@ copilot agent run database-architect "Design PostgreSQL schema for e-commerce pl
 
 ## Language Experts
 
-### 🐍 Python Expert
+### Python Expert
 
 **Best for:** Modern Python with type hints
 
@@ -258,7 +258,7 @@ copilot agent run python-expert "Create async FastAPI endpoint for file upload w
 
 ---
 
-### 📜 JavaScript Expert
+### JavaScript Expert
 
 **Best for:** Modern JavaScript and TypeScript
 
@@ -281,7 +281,7 @@ copilot agent run javascript-expert "Create custom React hook for data fetching 
 
 ---
 
-### 🦀 Rust Expert
+### Rust Expert
 
 **Best for:** Systems programming with Rust
 
@@ -304,7 +304,7 @@ copilot agent run rust-expert "Create thread-safe cache using Arc and RwLock wit
 
 ---
 
-### 🐹 Go Expert
+### Go Expert
 
 **Best for:** Go services and concurrency
 
@@ -327,7 +327,7 @@ copilot agent run go-expert "Create worker pool pattern for processing jobs with
 
 ---
 
-### ☕ Java Expert
+### Java Expert
 
 **Best for:** Enterprise Java development
 
@@ -350,7 +350,7 @@ copilot agent run java-expert "Create Spring Boot REST controller with validatio
 
 ---
 
-### 🗃️ SQL Expert
+### SQL Expert
 
 **Best for:** Query optimization and database design
 
@@ -375,7 +375,7 @@ copilot agent run sql-expert "Optimize this query that joins 5 tables and times 
 
 ## Testing & Quality
 
-### 🧪 E2E Tester
+### E2E Tester
 
 **Best for:** End-to-end test automation
 
@@ -398,7 +398,7 @@ copilot agent run e2e-tester "Create Playwright tests for checkout flow includin
 
 ---
 
-### 📊 A/B Test Ideas
+### A/B Test Ideas
 
 **Best for:** Experiment design and hypothesis generation
 
@@ -421,7 +421,7 @@ copilot agent run ab-test-ideas "Design A/B tests to improve email signup conver
 
 ---
 
-### 👁️ Code Reviewer
+### Code Reviewer
 
 **Best for:** Automated code review
 
@@ -444,7 +444,7 @@ copilot agent run code-reviewer "Review this authentication service for security
 
 ---
 
-### 🔒 Security Auditor
+### Security Auditor
 
 **Best for:** Security vulnerability detection
 
@@ -467,7 +467,7 @@ copilot agent run security-auditor "Audit payment processing module for PCI DSS 
 
 ---
 
-### ✅ Test Generator
+### Test Generator
 
 **Best for:** Automated test creation
 
@@ -492,7 +492,7 @@ copilot agent run test-generator "Create Jest tests for UserService with mocks f
 
 ## Design & UI/UX
 
-### 🎨 UI/UX Designer
+### UI/UX Designer
 
 **Best for:** User experience design
 
@@ -515,7 +515,7 @@ copilot agent run uiux-designer "Design onboarding flow for SaaS product that re
 
 ---
 
-### 🎯 Figma to HTML
+### Figma to HTML
 
 **Best for:** Design-to-code conversion
 
@@ -538,7 +538,7 @@ copilot agent run figma-to-html "Convert this landing page design to Next.js wit
 
 ---
 
-### 📱 Responsive Design
+### Responsive Design
 
 **Best for:** Mobile-first responsive layouts
 
@@ -561,7 +561,7 @@ copilot agent run responsive-design "Make this dashboard layout responsive for m
 
 ---
 
-### 🎭 Design System Builder
+### Design System Builder
 
 **Best for:** Creating design systems
 
@@ -586,7 +586,7 @@ copilot agent run design-system "Create design system with tokens, component lib
 
 ## Productivity
 
-### �� Enhanced Planner
+### Enhanced Planner
 
 **Best for:** Multi-step project planning
 
@@ -609,7 +609,7 @@ copilot agent run enhanced-planner "Plan migration from monolith to microservice
 
 ---
 
-### 🔍 Research Agent
+### Research Agent
 
 **Best for:** Technical research and investigation
 
@@ -632,7 +632,7 @@ copilot agent run research-agent "Research and compare React Server Components v
 
 ---
 
-### 📝 Task Breakdown
+### Task Breakdown
 
 **Best for:** Agile story decomposition
 
@@ -655,7 +655,7 @@ copilot agent run task-breakdown "Break down user authentication epic into detai
 
 ---
 
-### 📄 Doc Generator
+### Doc Generator
 
 **Best for:** Documentation creation
 
@@ -680,7 +680,7 @@ copilot agent run doc-generator "Create comprehensive README for this REST API w
 
 ## DevOps
 
-### 🐳 Docker Expert
+### Docker Expert
 
 **Best for:** Container optimization
 
@@ -703,7 +703,7 @@ copilot agent run docker-expert "Create optimized multi-stage Dockerfile for Nod
 
 ---
 
-### ☸️ Kubernetes Expert
+### Kubernetes Expert
 
 **Best for:** K8s deployments
 
@@ -726,7 +726,7 @@ copilot agent run kubernetes-expert "Create K8s manifests for microservice with 
 
 ---
 
-### 🔄 CI/CD Expert
+### CI/CD Expert
 
 **Best for:** Automated pipelines
 
@@ -749,7 +749,7 @@ copilot agent run cicd-expert "Create GitHub Actions workflow for Node.js app wi
 
 ---
 
-### 🏗️ Terraform Expert
+### Terraform Expert
 
 **Best for:** Infrastructure as Code
 
@@ -774,7 +774,7 @@ copilot agent run terraform-expert "Create Terraform module for VPC with public/
 
 ## Debugging
 
-### 🔍 Debug Detective
+### Debug Detective
 
 **Best for:** Error investigation
 
@@ -797,7 +797,7 @@ copilot agent run debug-detective "Analyze this NullPointerException and help me
 
 ---
 
-### ⚡ Performance Optimizer
+### Performance Optimizer
 
 **Best for:** Performance tuning
 
@@ -820,7 +820,7 @@ copilot agent run performance-optimizer "This API endpoint is slow (2s response 
 
 ---
 
-### 🔄 Legacy Modernizer
+### Legacy Modernizer
 
 **Best for:** Legacy code refactoring
 
@@ -848,18 +848,18 @@ copilot agent run legacy-modernizer "Plan and execute migration from AngularJS t
 ### Decision Tree
 
 ```
-Complex multi-domain task? → Orchestrator
-├─ Yes → Use Orchestrator
-└─ No
-    └─ What's the primary focus?
-        ├─ Planning/Architecture → Enhanced Planner / API Designer / Database Architect
-        ├─ Implementation → Frontend/Backend/Full-Stack Developer
-        ├─ Testing → E2E Tester / Test Generator
-        ├─ Quality → Code Reviewer / Security Auditor
-        ├─ Documentation → Doc Generator
-        ├─ Design → UI/UX Designer / Figma to HTML
-        ├─ DevOps → Docker/Kubernetes/CI-CD/Terraform Expert
-        └─ Debugging → Debug Detective / Performance Optimizer
+Complex multi-domain task?  Orchestrator
+ Yes  Use Orchestrator
+ No
+   What's the primary focus?
+       Planning/Architecture  Enhanced Planner / API Designer / Database Architect
+       Implementation  Frontend/Backend/Full-Stack Developer
+       Testing  E2E Tester / Test Generator
+       Quality  Code Reviewer / Security Auditor
+       Documentation  Doc Generator
+       Design  UI/UX Designer / Figma to HTML
+       DevOps  Docker/Kubernetes/CI-CD/Terraform Expert
+       Debugging  Debug Detective / Performance Optimizer
 ```
 
 ### Quick Reference

@@ -5,10 +5,10 @@ Comprehensive testing scenarios and validation checklist for all 35 agents.
 ## Testing Overview
 
 This document provides:
-- ✅ Validation criteria for each agent
-- 🧪 Test scenarios (CLI and IDE)
-- 📋 Quality benchmarks
-- 🐛 Known issues and limitations
+- Validation criteria for each agent
+- Test scenarios (CLI and IDE)
+- Quality benchmarks
+- Known issues and limitations
 
 ## Test Environment Setup
 
@@ -91,7 +91,7 @@ gh copilot agent list
 
 ## 1. Orchestration Agents
 
-### 🎯 Orchestrator
+### Orchestrator
 
 **Test Scenario 1: Full-Stack Feature**
 ```bash
@@ -127,7 +127,7 @@ gh copilot agent run orchestrator "Build authentication system with OAuth, JWT, 
 
 ---
 
-### ⚡ Workflow Manager
+### Workflow Manager
 
 **Test Scenario: CI/CD Pipeline**
 ```bash
@@ -154,7 +154,7 @@ gh copilot agent run workflow-manager "Create GitHub Actions workflow:
 
 ---
 
-### 📊 Project Manager
+### Project Manager
 
 **Test Scenario: Sprint Planning**
 ```bash
@@ -183,7 +183,7 @@ Team: 2 frontend, 2 backend devs"
 
 ## 2. Full-Stack Development
 
-### 💻 Frontend Developer
+### Frontend Developer
 
 **Test Scenario 1: React Component**
 ```bash
@@ -221,7 +221,7 @@ gh copilot agent run frontend-developer "Create React TypeScript component for u
 
 ---
 
-### 🔧 Backend Developer
+### Backend Developer
 
 **Test Scenario 1: REST API**
 ```bash
@@ -268,7 +268,7 @@ gh copilot agent run backend-developer "Create Express.js API for blog posts:
 
 ---
 
-### 🌐 Full-Stack Expert
+### Full-Stack Expert
 
 **Test Scenario: Complete Feature**
 ```bash
@@ -295,7 +295,7 @@ gh copilot agent run fullstack-expert "Build real-time notifications:
 
 ---
 
-### 📱 Mobile Developer
+### Mobile Developer
 
 **Test Scenario: Mobile App Feature**
 ```bash
@@ -322,7 +322,7 @@ gh copilot agent run mobile-developer "Create React Native camera feature:
 
 ---
 
-### 🔗 API Designer
+### API Designer
 
 **Test Scenario: OpenAPI Spec**
 ```bash
@@ -352,7 +352,7 @@ Include OpenAPI 3.0 spec"
 
 ---
 
-### 🗄️ Database Architect
+### Database Architect
 
 **Test Scenario: Complex Schema**
 ```bash
@@ -451,7 +451,7 @@ Target: < 100ms for 1M rows"
 
 ## 4. Testing & Quality
 
-### 🧪 E2E Tester
+### E2E Tester
 
 **Test Scenario: Full User Flow**
 ```bash
@@ -480,7 +480,7 @@ gh copilot agent run e2e-tester "Create Playwright tests for checkout:
 
 ---
 
-### 📊 A/B Test Ideas
+### A/B Test Ideas
 
 **Test Scenario: Conversion Optimization**
 ```bash
@@ -505,7 +505,7 @@ gh copilot agent run ab-test-ideas "Generate A/B test ideas to improve:
 
 ---
 
-### 👁️ Code Reviewer
+### Code Reviewer
 
 **Test Scenario: Security Review**
 ```bash
@@ -529,7 +529,7 @@ gh copilot agent run code-reviewer "Review this authentication code:
 
 ---
 
-### 🔒 Security Auditor
+### Security Auditor
 
 **Test Scenario: OWASP Coverage**
 ```bash
@@ -553,7 +553,7 @@ gh copilot agent run security-auditor "Audit this API for OWASP Top 10:
 
 ---
 
-### ✅ Test Generator
+### Test Generator
 
 **Test Scenario: Comprehensive Test Suite**
 ```bash
@@ -582,7 +582,7 @@ gh copilot agent run test-generator "Create Jest tests for OrderService:
 
 ## 5. Design & UI/UX
 
-### 🎨 UI/UX Designer
+### UI/UX Designer
 
 **Test Scenario: User Flow Design**
 ```bash
@@ -609,7 +609,7 @@ gh copilot agent run uiux-designer "Design onboarding flow for project managemen
 
 ---
 
-### 🎯 Figma to HTML
+### Figma to HTML
 
 **Test Scenario: Design Conversion**
 ```bash
@@ -638,7 +638,7 @@ Use React + Tailwind CSS"
 
 ---
 
-### 📱 Responsive Design
+### Responsive Design
 
 **Test Scenario: Layout Optimization**
 ```bash
@@ -663,7 +663,7 @@ Target: 320px (mobile) to 1920px (desktop)"
 
 ---
 
-### 🎭 Design System Builder
+### Design System Builder
 
 **Test Scenario: Component Library**
 ```bash
@@ -692,7 +692,7 @@ gh copilot agent run design-system "Create design system for SaaS app:
 
 ## 6. Productivity
 
-### 📋 Enhanced Planner
+### Enhanced Planner
 
 **Test Scenario: Complex Project**
 ```bash
@@ -719,7 +719,7 @@ gh copilot agent run enhanced-planner "Plan migration from monolith to microserv
 
 ---
 
-### 🔍 Research Agent
+### Research Agent
 
 **Test Scenario: Technology Comparison**
 ```bash
@@ -747,7 +747,7 @@ gh copilot agent run research-agent "Research React vs Vue vs Svelte for our nex
 
 ---
 
-### 📝 Task Breakdown
+### Task Breakdown
 
 **Test Scenario: Epic Decomposition**
 ```bash
@@ -771,7 +771,7 @@ Include: registration, login, password reset, 2FA, OAuth"
 
 ---
 
-### 📄 Doc Generator
+### Doc Generator
 
 **Test Scenario: API Documentation**
 ```bash
@@ -798,7 +798,7 @@ Include: setup, authentication, endpoints, examples"
 
 ## 7. DevOps
 
-### 🐳 Docker Expert
+### Docker Expert
 
 **Test Scenario: Optimized Dockerfile**
 ```bash
@@ -826,7 +826,7 @@ gh copilot agent run docker-expert "Create Dockerfile for Node.js app:
 
 ---
 
-### ☸️ Kubernetes Expert
+### Kubernetes Expert
 
 **Test Scenario: Application Deployment**
 ```bash
@@ -854,7 +854,7 @@ gh copilot agent run kubernetes-expert "Create K8s manifests for web app:
 
 ---
 
-### 🔄 CI/CD Expert
+### CI/CD Expert
 
 **Test Scenario: Complete Pipeline**
 ```bash
@@ -881,7 +881,7 @@ gh copilot agent run cicd-expert "Create GitHub Actions workflow:
 
 ---
 
-### 🏗️ Terraform Expert
+### Terraform Expert
 
 **Test Scenario: Infrastructure Provisioning**
 ```bash
@@ -911,7 +911,7 @@ gh copilot agent run terraform-expert "Create Terraform for AWS:
 
 ## 8. Debugging
 
-### 🔍 Debug Detective
+### Debug Detective
 
 **Test Scenario: Error Investigation**
 ```bash
@@ -937,7 +937,7 @@ Occurs randomly, ~10% of requests"
 
 ---
 
-### ⚡ Performance Optimizer
+### Performance Optimizer
 
 **Test Scenario: Slow Endpoint**
 ```bash
@@ -964,7 +964,7 @@ Code: [paste code with N+1 queries]"
 
 ---
 
-### 🔄 Legacy Modernizer
+### Legacy Modernizer
 
 **Test Scenario: Framework Migration**
 ```bash
@@ -997,16 +997,16 @@ Team: 4 developers"
 ### General Limitations
 
 1. **Context Length**: Very large codebases may exceed context limits
-   - Workaround: Provide specific files/sections
+ - Workaround: Provide specific files/sections
 
 2. **External Dependencies**: Agents can't install packages or make HTTP requests
-   - Workaround: Provide API responses or mock data
+ - Workaround: Provide API responses or mock data
 
 3. **File Access**: Agents don't automatically see all project files
-   - Workaround: Explicitly reference or paste relevant code
+ - Workaround: Explicitly reference or paste relevant code
 
 4. **Determinism**: Responses may vary between runs
-   - Expected: Some variation is normal
+ - Expected: Some variation is normal
 
 ### Agent-Specific Issues
 

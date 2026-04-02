@@ -30,15 +30,15 @@ copilot agent run orchestrator "Build a REST API for a task management system"
 **Flow:**
 ```
 Orchestrator
-    ↓
+    
 1. API Designer (design endpoints and schemas)
-    ↓
+    
 2. Database Architect (create schema based on API design)
-    ↓
+    
 3. Backend Developer (implement API with database)
-    ↓
+    
 4. Security Auditor (review for vulnerabilities)
-    ↓
+    
 5. Test Generator (create API tests)
 ```
 
@@ -57,13 +57,13 @@ copilot agent run orchestrator "Build a user profile feature with avatar upload,
 **Flow:**
 ```
 Orchestrator
-    ↓
-    ├─> Frontend Developer (UI components) ─┐
-    ├─> Backend Developer (API endpoints) ───┤
-    ├─> Database Architect (user schema) ────┤
-    └─> Doc Generator (API documentation) ────┤
-                                               ↓
-                                          Integration
+    
+  > Frontend Developer (UI components) 
+  > Backend Developer (API endpoints) 
+  > Database Architect (user schema) 
+  > Doc Generator (API documentation) 
+                                               
+                                        Integration
 ```
 
 **Why Parallel:** Frontend, backend, and database work can start simultaneously since the interfaces (API contracts) are defined upfront.
@@ -80,16 +80,16 @@ copilot agent run orchestrator "Create a payment processing microservice with AP
 
 **Flow:**
 ```
-                    Orchestrator
-                         │
-        ┌────────────────┼────────────────┐
-        ↓                ↓                ↓
-   Backend Dev      Docker Expert    Test Generator
-   (service logic)  (containerize)   (unit tests)
-        │                │                │
-        └────────────────┼────────────────┘
-                         ↓
-                    Integration
+                  Orchestrator
+                         
+        
+                                        
+ Backend Dev      Docker Expert    Test Generator
+ (service logic)  (containerize)   (unit tests)
+                                        
+        
+                         
+                  Integration
 ```
 
 ### Pattern 4: Iterative Refinement
@@ -105,13 +105,13 @@ copilot agent run orchestrator "Implement this design with optimization and acce
 **Flow:**
 ```
 1. Figma-to-HTML (convert design)
-    ↓
+    
 2. Responsive Design (make mobile-friendly)
-    ↓
+    
 3. Frontend Developer (add interactivity)
-    ↓
+    
 4. Performance Optimizer (optimize bundle)
-    ↓
+    
 5. Code Reviewer (final review)
 ```
 
@@ -123,13 +123,13 @@ Each agent validates or enhances the previous agent's work.
 
 ```
 Backend Developer (implement feature)
-    ↓
+    
 Security Auditor (identify vulnerabilities)
-    ↓
+    
 Backend Developer (fix security issues)
-    ↓
+    
 Test Generator (add security tests)
-    ↓
+    
 Code Reviewer (final validation)
 ```
 
@@ -160,9 +160,9 @@ Frontend Designer: Sketch checkout user flow
 **Phase 2: Implementation (Sequential Dependencies)**
 ```
 Backend Developer: Implement cart and checkout APIs
-    ↓
+    
 Frontend Developer: Build cart and checkout UI
-    ↓
+    
 Full-Stack Expert: Integrate Stripe payment
 ```
 
@@ -199,22 +199,22 @@ Enhanced Planner: Create migration roadmap
 **Phase 2: Foundation (Sequential)**
 ```
 Frontend Developer: Set up React infrastructure
-    ↓
+    
 Database Architect: Ensure DB compatibility
-    ↓
+    
 API Designer: Document existing APIs
 ```
 
 **Phase 3: Incremental Migration (Iterative)**
 ```
 For each feature:
-    Frontend Developer: Rewrite in React
-        ↓
-    Test Generator: Create tests
-        ↓
-    E2E Tester: Validate feature parity
-        ↓
-    Deploy (feature flag enabled)
+  Frontend Developer: Rewrite in React
+        
+  Test Generator: Create tests
+        
+  E2E Tester: Validate feature parity
+        
+  Deploy (feature flag enabled)
 ```
 
 **Phase 4: Cutover**
@@ -242,42 +242,42 @@ copilot agent run orchestrator "Build a project management SaaS with:
 **Sprint 1: Foundation**
 ```
 Enhanced Planner: Create product roadmap
-    ↓
+    
 Database Architect: Design core schema
-    ↓
+    
 API Designer: Design REST/GraphQL API
 ```
 
-**Sprint 2: Authentication (Parallel → Sequential)**
+**Sprint 2: Authentication (Parallel  Sequential)**
 ```
 Parallel:
-    Backend Developer: Auth service
-    Frontend Developer: Auth UI
-    Mobile Developer: Auth screens
-    ↓
+  Backend Developer: Auth service
+  Frontend Developer: Auth UI
+  Mobile Developer: Auth screens
+    
 Security Auditor: Security review
-    ↓
+    
 Test Generator: Auth tests
 ```
 
 **Sprint 3: Core Features**
 ```
 For each feature (projects, tasks, teams):
-    Full-Stack Expert: Implement feature
-        ↓
-    Test Generator: Feature tests
-        ↓
-    Code Reviewer: Review
+  Full-Stack Expert: Implement feature
+        
+  Test Generator: Feature tests
+        
+  Code Reviewer: Review
 ```
 
 **Sprint 4: Real-Time & Polish**
 ```
 Backend Developer: WebSocket service
-    ↓
+    
 Frontend Developer: Real-time UI updates
-    ↓
+    
 Mobile Developer: Push notifications
-    ↓
+    
 Performance Optimizer: Optimize all layers
 ```
 
@@ -288,7 +288,7 @@ Performance Optimizer: Optimize all layers
 When passing work between agents, preserve context:
 
 ```
-Orchestrator → Frontend Developer:
+Orchestrator  Frontend Developer:
 "Build the user dashboard. Use the API endpoints defined by the API Designer: 
 - GET /api/user/stats
 - GET /api/user/activity
@@ -300,16 +300,16 @@ The database schema uses UUID for user IDs."
 Define clear handoff points:
 
 ```
-1. Database Architect creates schema ✓
-   → Provides: Table structures, relationships, indexes
+1. Database Architect creates schema 
+  Provides: Table structures, relationships, indexes
    
 2. Backend Developer receives:
-   → Input: Database schema
-   → Output: API endpoints, ORM models
+  Input: Database schema
+  Output: API endpoints, ORM models
    
 3. Frontend Developer receives:
-   → Input: API endpoint contracts
-   → Output: UI components, state management
+  Input: API endpoint contracts
+  Output: UI components, state management
 ```
 
 ### Pattern: Feedback Loops
@@ -317,12 +317,12 @@ Define clear handoff points:
 Agents review each other's work:
 
 ```
-Backend Developer → Code Reviewer:
-    Code Reviewer finds issue
-        ↓
-Backend Developer → Fix issue
-        ↓
-Security Auditor → Validate fix
+Backend Developer  Code Reviewer:
+  Code Reviewer finds issue
+        
+Backend Developer  Fix issue
+        
+Security Auditor  Validate fix
 ```
 
 ## Advanced Orchestration
@@ -331,7 +331,7 @@ Security Auditor → Validate fix
 
 Create your own multi-agent workflows:
 
-**Research → Design → Implement → Test**
+**Research  Design  Implement  Test**
 ```bash
 # Step 1: Research
 copilot agent run research-agent "Research best practices for real-time chat apps"
@@ -352,13 +352,13 @@ Different paths based on requirements:
 
 ```
 If (new feature):
-    Frontend Developer → Test Generator
+  Frontend Developer  Test Generator
     
 If (bug fix):
-    Debug Detective → Backend Developer → Test Generator
+  Debug Detective  Backend Developer  Test Generator
     
 If (performance issue):
-    Performance Optimizer → Code Reviewer
+  Performance Optimizer  Code Reviewer
 ```
 
 ### Hybrid Orchestration
@@ -380,12 +380,12 @@ copilot agent run test-generator "Add tests for pagination"
 
 ### 1. Start with Clear Requirements
 
-❌ Bad:
+ Bad:
 ```bash
 copilot agent run orchestrator "Build something for users"
 ```
 
-✅ Good:
+ Good:
 ```bash
 copilot agent run orchestrator "Build a user authentication system with:
 - Email/password login
@@ -399,12 +399,12 @@ copilot agent run orchestrator "Build a user authentication system with:
 
 Trust the orchestrator to choose agents and sequencing:
 
-❌ Don't micromanage:
+ Don't micromanage:
 ```bash
 "First use Backend Developer, then Frontend Developer, then Test Generator"
 ```
 
-✅ Describe the goal:
+ Describe the goal:
 ```bash
 "Build a complete feature with backend, frontend, and tests"
 ```

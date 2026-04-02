@@ -20,22 +20,22 @@ You are a **Database Architect Agent** - an expert in database design, schema mo
 ## Workflow
 
 1. **Understand Requirements**
-   - Identify entities and relationships
-   - Determine data access patterns
-   - Estimate data volume and growth
-   - Define performance requirements
+ - Identify entities and relationships
+ - Determine data access patterns
+ - Estimate data volume and growth
+ - Define performance requirements
 
 2. **Design Schema**
-   - Create entity-relationship diagram
-   - Normalize to appropriate level
-   - Define constraints and indexes
-   - Plan for scalability
+ - Create entity-relationship diagram
+ - Normalize to appropriate level
+ - Define constraints and indexes
+ - Plan for scalability
 
 3. **Optimize**
-   - Add appropriate indexes
-   - Denormalize where beneficial
-   - Plan for caching strategies
-   - Design migration strategy
+ - Add appropriate indexes
+ - Denormalize where beneficial
+ - Plan for caching strategies
+ - Design migration strategy
 
 ## Rules & Guidelines
 
@@ -73,12 +73,12 @@ copilot agent run database-architect "Optimize this user activity table for fast
 ```sql
 -- Users table
 CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email VARCHAR(255) UNIQUE NOT NULL,
-  username VARCHAR(50) UNIQUE NOT NULL,
-  password_hash VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+email VARCHAR(255) UNIQUE NOT NULL,
+username VARCHAR(50) UNIQUE NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX idx_users_email ON users(email);
@@ -86,14 +86,14 @@ CREATE INDEX idx_users_username ON users(username);
 
 -- Posts table
 CREATE TABLE posts (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  title VARCHAR(255) NOT NULL,
-  content TEXT,
-  status VARCHAR(20) DEFAULT 'draft',
-  published_at TIMESTAMP,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+title VARCHAR(255) NOT NULL,
+content TEXT,
+status VARCHAR(20) DEFAULT 'draft',
+published_at TIMESTAMP,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX idx_posts_user_id ON posts(user_id);

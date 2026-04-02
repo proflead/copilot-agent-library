@@ -15,31 +15,31 @@ Error: Agent 'orchestrator' not found
 **Solutions:**
 
 1. **Verify file location:**
-   ```bash
-   # CLI users - check ~/.github/agents/
-   ls -la ~/.github/agents/
+ ```bash
+ # CLI users - check ~/.github/agents/
+ ls -la ~/.github/agents/
    
-   # IDE users - check .github/agents/ in workspace
-   ls -la .github/agents/
-   ```
+ # IDE users - check .github/agents/ in workspace
+ ls -la .github/agents/
+ ```
 
 2. **Check filename:**
-   - Must end with `.agent.md`
-   - Name must match: `orchestrator.agent.md`
-   - No extra extensions: ~~`orchestrator.agent.md.txt`~~
+ - Must end with `.agent.md`
+ - Name must match: `orchestrator.agent.md`
+ - No extra extensions: ~~`orchestrator.agent.md.txt`~~
 
 3. **Reload/restart:**
-   ```bash
-   # CLI: No restart needed, should work immediately
+ ```bash
+ # CLI: No restart needed, should work immediately
    
-   # VS Code: Reload window
-   # Cmd/Ctrl + Shift + P → "Developer: Reload Window"
-   ```
+ # VS Code: Reload window
+ # Cmd/Ctrl + Shift + P  "Developer: Reload Window"
+ ```
 
 4. **Check file permissions:**
-   ```bash
-   chmod 644 ~/.github/agents/orchestrator.agent.md
-   ```
+ ```bash
+ chmod 644 ~/.github/agents/orchestrator.agent.md
+ ```
 
 ### Agent List Is Empty
 
@@ -52,20 +52,20 @@ copilot agent list
 **Solutions:**
 
 1. **Create agents directory:**
-   ```bash
-   mkdir -p ~/.github/agents
-   ```
+ ```bash
+ mkdir -p ~/.github/agents
+ ```
 
 2. **Verify Copilot CLI is updated:**
-   ```bash
-   gh extension upgrade gh-copilot
-   ```
+ ```bash
+ gh extension upgrade gh-copilot
+ ```
 
 3. **Check Copilot authentication:**
-   ```bash
-   gh auth status
-   # Should show you're logged in with Copilot access
-   ```
+ ```bash
+ gh auth status
+ # Should show you're logged in with Copilot access
+ ```
 
 ## Agent Execution Issues
 
@@ -76,32 +76,32 @@ copilot agent list
 **Solutions:**
 
 1. **Check internet connection:**
-   - Agents require API access
-   - Test: `ping github.com`
+ - Agents require API access
+ - Test: `ping github.com`
 
 2. **Verify Copilot subscription:**
-   ```bash
-   gh copilot status
-   ```
-   Should show active subscription
+ ```bash
+ gh copilot status
+ ```
+ Should show active subscription
 
 3. **Simplify the prompt:**
-   ```bash
-   # Too complex might timeout
-   copilot agent run orchestrator "Build entire enterprise application..."
+ ```bash
+ # Too complex might timeout
+ copilot agent run orchestrator "Build entire enterprise application..."
    
-   # Start simpler
-   copilot agent run orchestrator "Create basic REST API structure"
-   ```
+ # Start simpler
+ copilot agent run orchestrator "Create basic REST API structure"
+ ```
 
 4. **Check model availability:**
-   - Some agents specify models (claude-sonnet-4.5, gpt-4.1)
-   - If model unavailable, edit agent file to use different model
+ - Some agents specify models (claude-sonnet-4.5, gpt-4.1)
+ - If model unavailable, edit agent file to use different model
    
-   ```yaml
-   # In agent file
-   model: claude-sonnet-4.5  # Try changing to gpt-4.1
-   ```
+ ```yaml
+ # In agent file
+ model: claude-sonnet-4.5  # Try changing to gpt-4.1
+ ```
 
 ### Agent Output Is Truncated
 
@@ -110,19 +110,19 @@ copilot agent list
 **Solutions:**
 
 1. **CLI - save to file:**
-   ```bash
-   copilot agent run orchestrator "task" > output.md
-   ```
+ ```bash
+ copilot agent run orchestrator "task" > output.md
+ ```
 
 2. **Request in parts:**
-   ```bash
-   # Instead of one huge request
-   copilot agent run backend-developer "Build complete backend"
+ ```bash
+ # Instead of one huge request
+ copilot agent run backend-developer "Build complete backend"
    
-   # Break it down
-   copilot agent run backend-developer "Create user model and repository"
-   copilot agent run backend-developer "Create authentication service"
-   ```
+ # Break it down
+ copilot agent run backend-developer "Create user model and repository"
+ copilot agent run backend-developer "Create authentication service"
+ ```
 
 3. **Increase terminal buffer** (terminal-dependent)
 
@@ -138,12 +138,12 @@ Error: Rate limit exceeded
 1. **Wait and retry** (rate limits typically reset within minutes)
 
 2. **Spread out requests:**
-   ```bash
-   # Don't run 20 agents in parallel
+ ```bash
+ # Don't run 20 agents in parallel
    
-   # Instead, batch appropriately
-   copilot agent run orchestrator "handle coordination"
-   ```
+ # Instead, batch appropriately
+ copilot agent run orchestrator "handle coordination"
+ ```
 
 3. **Check Copilot usage limits for your plan**
 
@@ -156,34 +156,34 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Provide explicit context:**
-   ```bash
-   # Bad - no context
-   copilot agent run backend-developer "Create user service"
+ ```bash
+ # Bad - no context
+ copilot agent run backend-developer "Create user service"
    
-   # Good - rich context
-   copilot agent run backend-developer "Create user service for our Node.js app:
-   - Tech stack: TypeScript, Express, Prisma ORM, PostgreSQL
-   - Follow existing pattern in src/services/product.service.ts
-   - Use dependency injection from tsyringe
-   - Return DTOs, not raw Prisma models"
-   ```
+ # Good - rich context
+ copilot agent run backend-developer "Create user service for our Node.js app:
+ - Tech stack: TypeScript, Express, Prisma ORM, PostgreSQL
+ - Follow existing pattern in src/services/product.service.ts
+ - Use dependency injection from tsyringe
+ - Return DTOs, not raw Prisma models"
+ ```
 
 2. **Share code examples:**
-   ```bash
-   copilot agent run backend-developer "Create order service similar to:
-   \`\`\`typescript
-   // Example from user service
-   export class UserService {
-     constructor(private repo: UserRepository) {}
-     async findById(id: string): Promise<UserDTO> { ... }
-   }
-   \`\`\`"
-   ```
+ ```bash
+ copilot agent run backend-developer "Create order service similar to:
+ \`\`\`typescript
+ // Example from user service
+ export class UserService {
+   constructor(private repo: UserRepository) {}
+   async findById(id: string): Promise<UserDTO> { ... }
+ }
+ \`\`\`"
+ ```
 
 3. **Reference existing files:**
-   ```bash
-   copilot agent run frontend-developer "Create ProductCard component following the pattern in src/components/UserCard.tsx"
-   ```
+ ```bash
+ copilot agent run frontend-developer "Create ProductCard component following the pattern in src/components/UserCard.tsx"
+ ```
 
 ### Agent Produces Outdated Code
 
@@ -192,25 +192,25 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Specify versions:**
-   ```bash
-   copilot agent run frontend-developer "Create React component using:
-   - React 18 with hooks (no class components)
-   - TypeScript 5
-   - Functional components with arrow functions"
-   ```
+ ```bash
+ copilot agent run frontend-developer "Create React component using:
+ - React 18 with hooks (no class components)
+ - TypeScript 5
+ - Functional components with arrow functions"
+ ```
 
 2. **Mention modern patterns:**
-   ```bash
-   copilot agent run backend-developer "Use async/await, not callbacks or promises.then()"
-   ```
+ ```bash
+ copilot agent run backend-developer "Use async/await, not callbacks or promises.then()"
+ ```
 
 3. **Request specific libraries:**
-   ```bash
-   copilot agent run test-generator "Create tests using:
-   - Jest 29
-   - Testing Library (not Enzyme)
-   - Modern matchers like toBeInTheDocument()"
-   ```
+ ```bash
+ copilot agent run test-generator "Create tests using:
+ - Jest 29
+ - Testing Library (not Enzyme)
+ - Modern matchers like toBeInTheDocument()"
+ ```
 
 ### Agent Ignores Requirements
 
@@ -219,30 +219,30 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Use bullet points for requirements:**
-   ```bash
-   copilot agent run backend-developer "Create authentication API with:
-   - JWT tokens with refresh
-   - Password hashing with bcrypt
-   - Rate limiting (10 attempts per minute)
-   - Email verification required
-   - Role-based access control"
-   ```
+ ```bash
+ copilot agent run backend-developer "Create authentication API with:
+ - JWT tokens with refresh
+ - Password hashing with bcrypt
+ - Rate limiting (10 attempts per minute)
+ - Email verification required
+ - Role-based access control"
+ ```
 
 2. **Prioritize requirements:**
-   ```bash
-   "CRITICAL: Must include input validation and SQL injection prevention
-   IMPORTANT: Add rate limiting
-   NICE TO HAVE: Logging"
-   ```
+ ```bash
+ "CRITICAL: Must include input validation and SQL injection prevention
+ IMPORTANT: Add rate limiting
+ NICE TO HAVE: Logging"
+ ```
 
 3. **Iterate with feedback:**
-   ```bash
-   # First attempt
-   copilot agent run backend-developer "Create API"
+ ```bash
+ # First attempt
+ copilot agent run backend-developer "Create API"
    
-   # Review output, then refine
-   copilot agent run backend-developer "Add the missing input validation to the API"
-   ```
+ # Review output, then refine
+ copilot agent run backend-developer "Add the missing input validation to the API"
+ ```
 
 ## IDE-Specific Issues
 
@@ -253,20 +253,20 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Check file location:**
-   - Must be in workspace `.github/agents/` directory
-   - Not in global `~/.github/agents/`
+ - Must be in workspace `.github/agents/` directory
+ - Not in global `~/.github/agents/`
 
 2. **Reload window:**
-   - Cmd/Ctrl + Shift + P
-   - "Developer: Reload Window"
+ - Cmd/Ctrl + Shift + P
+ - "Developer: Reload Window"
 
 3. **Check Copilot extension:**
-   - Ensure GitHub Copilot extension is enabled
-   - Check extension version (update if needed)
+ - Ensure GitHub Copilot extension is enabled
+ - Check extension version (update if needed)
 
 4. **Verify workspace:**
-   - Agent files only work in open workspace
-   - Open folder containing `.github/agents/`
+ - Agent files only work in open workspace
+ - Open folder containing `.github/agents/`
 
 ### Agent Sees Wrong Files
 
@@ -275,19 +275,19 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Be explicit with paths:**
-   ```
-   @backend-developer Update the user service in src/services/user.service.ts
-   ```
+ ```
+ @backend-developer Update the user service in src/services/user.service.ts
+ ```
 
 2. **Select code first:**
-   - Highlight relevant code in editor
-   - Then invoke agent
-   - Agent will see selected context
+ - Highlight relevant code in editor
+ - Then invoke agent
+ - Agent will see selected context
 
 3. **Use workspace-relative paths:**
-   ```
-   @frontend-developer Create component in src/components/NewComponent.tsx
-   ```
+ ```
+ @frontend-developer Create component in src/components/NewComponent.tsx
+ ```
 
 ## CLI-Specific Issues
 
@@ -298,27 +298,27 @@ Error: Rate limit exceeded
 **Solutions:**
 
 1. **Use absolute or relative paths:**
-   ```bash
-   # Absolute
-   copilot agent run python-expert "Review /home/user/project/src/main.py"
+ ```bash
+ # Absolute
+ copilot agent run python-expert "Review /home/user/project/src/main.py"
    
-   # Relative to current directory
-   copilot agent run python-expert "Review ./src/main.py"
-   ```
+ # Relative to current directory
+ copilot agent run python-expert "Review ./src/main.py"
+ ```
 
 2. **Check current directory:**
-   ```bash
-   pwd  # Verify you're in the right place
-   ls   # Verify files exist
-   ```
+ ```bash
+ pwd  # Verify you're in the right place
+ ls   # Verify files exist
+ ```
 
 3. **Provide file contents explicitly:**
-   ```bash
-   copilot agent run code-reviewer "Review this code:
-   \`\`\`python
-   $(cat src/main.py)
-   \`\`\`"
-   ```
+ ```bash
+ copilot agent run code-reviewer "Review this code:
+ \`\`\`python
+ $(cat src/main.py)
+ \`\`\`"
+ ```
 
 ### Output Goes to Terminal, Need in File
 
@@ -349,30 +349,30 @@ copilot agent run orchestrator "Complex task" | tee output.md | less
 **Solutions:**
 
 1. **Have Orchestrator set standards:**
-   ```bash
-   copilot agent run orchestrator "Build feature X. 
-   Standards:
-   - TypeScript strict mode
-   - ESLint Airbnb config
-   - Prettier formatting
-   - Jest for testing
-   Ensure all agents follow these standards."
-   ```
+ ```bash
+ copilot agent run orchestrator "Build feature X. 
+ Standards:
+ - TypeScript strict mode
+ - ESLint Airbnb config
+ - Prettier formatting
+ - Jest for testing
+ Ensure all agents follow these standards."
+ ```
 
 2. **Provide style guide:**
-   ```bash
-   "Follow our style guide at CONTRIBUTING.md:
-   - No default exports
-   - Named exports only
-   - Arrow functions for components"
-   ```
+ ```bash
+ "Follow our style guide at CONTRIBUTING.md:
+ - No default exports
+ - Named exports only
+ - Arrow functions for components"
+ ```
 
 3. **Use Code Reviewer as final gate:**
-   ```bash
-   copilot agent run orchestrator "Build feature"
-   # Then
-   copilot agent run code-reviewer "Ensure consistency with project standards in docs/STYLE_GUIDE.md"
-   ```
+ ```bash
+ copilot agent run orchestrator "Build feature"
+ # Then
+ copilot agent run code-reviewer "Ensure consistency with project standards in docs/STYLE_GUIDE.md"
+ ```
 
 ### Integration Issues Between Agents
 
@@ -381,27 +381,27 @@ copilot agent run orchestrator "Complex task" | tee output.md | less
 **Solutions:**
 
 1. **Define contracts upfront:**
-   ```bash
-   copilot agent run api-designer "Create OpenAPI spec for user management"
+ ```bash
+ copilot agent run api-designer "Create OpenAPI spec for user management"
    
-   # Then use the spec for both
-   copilot agent run backend-developer "Implement API matching spec.yaml"
-   copilot agent run frontend-developer "Create client for API in spec.yaml"
-   ```
+ # Then use the spec for both
+ copilot agent run backend-developer "Implement API matching spec.yaml"
+ copilot agent run frontend-developer "Create client for API in spec.yaml"
+ ```
 
 2. **Use Orchestrator for coordination:**
-   ```bash
-   copilot agent run orchestrator "Build full-stack feature ensuring frontend and backend integrate properly"
-   ```
+ ```bash
+ copilot agent run orchestrator "Build full-stack feature ensuring frontend and backend integrate properly"
+ ```
 
 3. **Explicit handoff:**
-   ```bash
-   # Save backend output
-   copilot agent run backend-developer "Create API" > api-spec.txt
+ ```bash
+ # Save backend output
+ copilot agent run backend-developer "Create API" > api-spec.txt
    
-   # Use it for frontend
-   copilot agent run frontend-developer "Create client for this API: $(cat api-spec.txt)"
-   ```
+ # Use it for frontend
+ copilot agent run frontend-developer "Create client for this API: $(cat api-spec.txt)"
+ ```
 
 ## Performance Issues
 
@@ -412,28 +412,28 @@ copilot agent run orchestrator "Complex task" | tee output.md | less
 **Solutions:**
 
 1. **Break down the task:**
-   ```bash
-   # Too big
-   copilot agent run orchestrator "Build entire e-commerce platform"
+ ```bash
+ # Too big
+ copilot agent run orchestrator "Build entire e-commerce platform"
    
-   # Better - phased approach
-   copilot agent run orchestrator "Build product catalog feature"
-   # Wait for completion, then
-   copilot agent run orchestrator "Build shopping cart feature"
-   ```
+ # Better - phased approach
+ copilot agent run orchestrator "Build product catalog feature"
+ # Wait for completion, then
+ copilot agent run orchestrator "Build shopping cart feature"
+ ```
 
 2. **Simplify prompt:**
-   ```bash
-   # Too detailed
-   copilot agent run backend-developer "Create service with A, B, C, D, E, F, G, H, I, J features..."
+ ```bash
+ # Too detailed
+ copilot agent run backend-developer "Create service with A, B, C, D, E, F, G, H, I, J features..."
    
-   # Start with core
-   copilot agent run backend-developer "Create service with core features A, B, C"
-   ```
+ # Start with core
+ copilot agent run backend-developer "Create service with core features A, B, C"
+ ```
 
 3. **Check system resources:**
-   - Close other heavy applications
-   - Check internet speed
+ - Close other heavy applications
+ - Check internet speed
 
 ### Agent Repeats or Loops
 
@@ -442,78 +442,78 @@ copilot agent run orchestrator "Complex task" | tee output.md | less
 **Solutions:**
 
 1. **Cancel and restart:**
-   ```bash
-   # Press Ctrl+C to cancel
-   # Rephrase and try again
-   ```
+ ```bash
+ # Press Ctrl+C to cancel
+ # Rephrase and try again
+ ```
 
 2. **More specific instructions:**
-   ```bash
-   # Vague
-   copilot agent run debug-detective "Fix this bug"
+ ```bash
+ # Vague
+ copilot agent run debug-detective "Fix this bug"
    
-   # Specific
-   copilot agent run debug-detective "Analyze this stack trace and suggest fix: [paste trace]"
-   ```
+ # Specific
+ copilot agent run debug-detective "Analyze this stack trace and suggest fix: [paste trace]"
+ ```
 
 ## Getting Help
 
 ### When Nothing Works
 
 1. **Check Copilot status:**
-   ```bash
-   gh copilot status
-   ```
+ ```bash
+ gh copilot status
+ ```
 
 2. **Update Copilot CLI:**
-   ```bash
-   gh extension upgrade gh-copilot
-   ```
+ ```bash
+ gh extension upgrade gh-copilot
+ ```
 
 3. **Check GitHub Copilot status page:**
-   - Visit https://www.githubstatus.com/
-   - Look for Copilot service issues
+ - Visit https://www.githubstatus.com/
+ - Look for Copilot service issues
 
 4. **Try with a different agent:**
-   ```bash
-   # If orchestrator fails, try simpler agent
-   copilot agent run python-expert "Simple task"
-   ```
+ ```bash
+ # If orchestrator fails, try simpler agent
+ copilot agent run python-expert "Simple task"
+ ```
 
 5. **Collect diagnostics:**
-   ```bash
-   gh version
-   gh extension list
-   ls -la ~/.github/agents/
-   copilot agent list
-   ```
+ ```bash
+ gh version
+ gh extension list
+ ls -la ~/.github/agents/
+ copilot agent list
+ ```
 
 ### Reporting Issues
 
 When reporting issues with an agent:
 
 1. **Include:**
-   - Exact command used
-   - Agent name and file
-   - Error message (full text)
-   - Platform (CLI/VS Code, OS)
-   - Copilot version
+ - Exact command used
+ - Agent name and file
+ - Error message (full text)
+ - Platform (CLI/VS Code, OS)
+ - Copilot version
 
 2. **Example report:**
-   ```
-   Platform: CLI on macOS 13.1
-   Copilot version: gh-copilot 0.5.3-beta
-   Agent: orchestrator.agent.md
-   Command: copilot agent run orchestrator "Build API"
-   Error: [full error message]
-   Expected: Agent should coordinate backend developer
-   Actual: Times out after 2 minutes
-   ```
+ ```
+ Platform: CLI on macOS 13.1
+ Copilot version: gh-copilot 0.5.3-beta
+ Agent: orchestrator.agent.md
+ Command: copilot agent run orchestrator "Build API"
+ Error: [full error message]
+ Expected: Agent should coordinate backend developer
+ Actual: Times out after 2 minutes
+ ```
 
 3. **Where to report:**
-   - This repository: [GitHub Issues](../../issues)
-   - Copilot CLI: `gh copilot feedback`
-   - VS Code: Help → Report Issue
+ - This repository: [GitHub Issues](../../issues)
+ - Copilot CLI: `gh copilot feedback`
+ - VS Code: Help  Report Issue
 
 ## Quick Reference: Common Fixes
 

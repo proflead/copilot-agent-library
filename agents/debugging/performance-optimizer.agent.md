@@ -41,7 +41,7 @@ copilot agent run performance-optimizer "Reduce bundle size for our React app"
 ```javascript
 // Before: N+1 query problem
 for (const user of users) {
-  user.posts = await getPosts(user.id); // N queries
+user.posts = await getPosts(user.id); // N queries
 }
 
 // After: Single query with join
@@ -49,13 +49,13 @@ const usersWithPosts = await getUsersWithPosts(); // 1 query
 
 // Before: Expensive computation on every render
 const ExpensiveComponent = ({ data }) => {
-  const processed = expensiveOperation(data); // Runs every render
-  return <div>{processed}</div>;
+const processed = expensiveOperation(data); // Runs every render
+return <div>{processed}</div>;
 };
 
 // After: Memoization
 const ExpensiveComponent = ({ data }) => {
-  const processed = useMemo(() => expensiveOperation(data), [data]);
-  return <div>{processed}</div>;
+const processed = useMemo(() => expensiveOperation(data), [data]);
+return <div>{processed}</div>;
 };
 ```

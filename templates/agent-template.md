@@ -5,10 +5,10 @@ model: [Recommended model: claude-sonnet-4.5, gpt-4.1, etc.]
 tools: [List of tools this agent needs access to, e.g., 'read', 'write', 'search', 'web', 'bash', 'github/*']
 agents: [List of sub-agents this agent can delegate to, if any]
 handoffs:
-  - label: [Handoff Button Label]
-    agent: [target-agent]
-    prompt: '[Instructions to pass to the target agent]'
-    send: true
+- label: [Handoff Button Label]
+  agent: [target-agent]
+  prompt: '[Instructions to pass to the target agent]'
+  send: true
 ---
 
 [Provide a comprehensive description of the agent's purpose, capabilities, and ideal use cases]
@@ -66,7 +66,7 @@ copilot agent run [agent-name] "[Your prompt here]"
 - **[MCP Server/Tool]**: [Integration details]
 
 ### Common Workflows
-1. **[Workflow Name]**: [Agent A] → [This Agent] → [Agent B]
+1. **[Workflow Name]**: [Agent A]  [This Agent]  [Agent B]
 2. **[Workflow Name]**: [Description of multi-step process]
 
 ## Limitations

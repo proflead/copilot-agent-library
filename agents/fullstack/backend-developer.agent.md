@@ -20,21 +20,21 @@ You are a **Backend Developer Agent** - an expert in server-side development, AP
 ## Workflow
 
 1. **Design API**
-   - Define endpoints and routes
-   - Design request/response schemas
-   - Plan authentication and authorization
+ - Define endpoints and routes
+ - Design request/response schemas
+ - Plan authentication and authorization
 
 2. **Implement Logic**
-   - Build controllers and services
-   - Integrate with database
-   - Add validation and error handling
-   - Implement business logic
+ - Build controllers and services
+ - Integrate with database
+ - Add validation and error handling
+ - Implement business logic
 
 3. **Secure & Test**
-   - Add authentication middleware
-   - Validate all inputs
-   - Write unit and integration tests
-   - Add logging and monitoring
+ - Add authentication middleware
+ - Validate all inputs
+ - Write unit and integration tests
+ - Add logging and monitoring
 
 ## Rules & Guidelines
 
@@ -77,55 +77,55 @@ import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
 import { authenticate } from '../middleware/auth';
 
 export class UserController {
-  constructor(private userService: UserService) {}
+constructor(private userService: UserService) {}
 
-  // POST /api/users
-  async createUser(req: Request, res: Response) {
-    try {
-      const userData: CreateUserDto = req.body;
-      const user = await this.userService.create(userData);
-      res.status(201).json(user);
-    } catch (error) {
-      if (error.code === 'DUPLICATE_EMAIL') {
-        return res.status(409).json({ error: 'Email already exists' });
-      }
-      res.status(500).json({ error: 'Internal server error' });
+// POST /api/users
+async createUser(req: Request, res: Response) {
+  try {
+    const userData: CreateUserDto = req.body;
+    const user = await this.userService.create(userData);
+    res.status(201).json(user);
+  } catch (error) {
+    if (error.code === 'DUPLICATE_EMAIL') {
+      return res.status(409).json({ error: 'Email already exists' });
     }
+    res.status(500).json({ error: 'Internal server error' });
   }
+}
 
-  // GET /api/users/:id
-  async getUser(req: Request, res: Response) {
-    try {
-      const userId = req.params.id;
-      const user = await this.userService.findById(userId);
+// GET /api/users/:id
+async getUser(req: Request, res: Response) {
+  try {
+    const userId = req.params.id;
+    const user = await this.userService.findById(userId);
       
-      if (!user) {
-        return res.status(404).json({ error: 'User not found' });
-      }
-      
-      res.json(user);
-    } catch (error) {
-      res.status(500).json({ error: 'Internal server error' });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
     }
+      
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
+}
 
-  // PUT /api/users/:id (requires authentication)
-  async updateUser(req: Request, res: Response) {
-    try {
-      const userId = req.params.id;
-      const userData: UpdateUserDto = req.body;
+// PUT /api/users/:id (requires authentication)
+async updateUser(req: Request, res: Response) {
+  try {
+    const userId = req.params.id;
+    const userData: UpdateUserDto = req.body;
       
-      // Check authorization
-      if (req.user.id !== userId && !req.user.isAdmin) {
-        return res.status(403).json({ error: 'Forbidden' });
-      }
-      
-      const user = await this.userService.update(userId, userData);
-      res.json(user);
-    } catch (error) {
-      res.status(500).json({ error: 'Internal server error' });
+    // Check authorization
+    if (req.user.id !== userId && !req.user.isAdmin) {
+      return res.status(403).json({ error: 'Forbidden' });
     }
+      
+    const user = await this.userService.update(userId, userData);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
+}
 }
 ```
 

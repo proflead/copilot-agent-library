@@ -1,4 +1,4 @@
-# 🤖 Copilot Agent Library
+# Copilot Agent Library
 
 A comprehensive collection of **30+ production-ready custom GitHub Copilot agents** for developers, teams, and organizations. Download, customize, and deploy powerful AI agents to supercharge your development workflow.
 
@@ -8,20 +8,20 @@ A comprehensive collection of **30+ production-ready custom GitHub Copilot agent
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### For CLI Users
 
 1. **Choose an agent** from the [Agent Categories](#agent-categories) below
 2. **Download the agent file** (`.agent.md`) to your local machine
 3. **Copy to your agents directory**:
-   ```bash
-   cp path/to/agent.agent.md ~/.github/agents/
-   ```
+ ```bash
+ cp path/to/agent.agent.md ~/.github/agents/
+ ```
 4. **Use the agent**:
-   ```bash
-   copilot agent run agent-name "Your task here"
-   ```
+ ```bash
+ copilot agent run agent-name "Your task here"
+ ```
 
 ### For IDE Users (VS Code)
 
@@ -32,9 +32,9 @@ A comprehensive collection of **30+ production-ready custom GitHub Copilot agent
 
 ---
 
-## 📚 Agent Categories
+## Agent Categories
 
-### 🎯 Orchestration (3 agents)
+### Orchestration (3 agents)
 
 Coordinate multiple agents and manage complex workflows.
 
@@ -44,7 +44,7 @@ Coordinate multiple agents and manage complex workflows.
 | [**Workflow Manager**](agents/orchestration/workflow-manager.agent.md) | Sequential and parallel task execution | CI/CD pipelines, automated workflows |
 | [**Project Manager**](agents/orchestration/project-manager.agent.md) | Sprint planning and stakeholder coordination | Agile project management, roadmap planning |
 
-### 💻 Full-Stack Development (6 agents)
+### Full-Stack Development (6 agents)
 
 End-to-end development from frontend to backend to mobile.
 
@@ -57,7 +57,7 @@ End-to-end development from frontend to backend to mobile.
 | [**API Designer**](agents/fullstack/api-designer.agent.md) | RESTful principles, OpenAPI specs, versioning | API architecture, documentation |
 | [**Database Architect**](agents/fullstack/database-architect.agent.md) | Schema design, normalization, query optimization | Database modeling, performance tuning |
 
-### 🔧 Language Experts (6 agents)
+### Language Experts (6 agents)
 
 Language-specific coding assistants with deep expertise.
 
@@ -70,7 +70,7 @@ Language-specific coding assistants with deep expertise.
 | [**Java Expert**](agents/coding/java-expert.agent.md) | Spring Boot, Maven/Gradle, JUnit | Enterprise applications, Android apps |
 | [**SQL Expert**](agents/coding/sql-expert.agent.md) | Query optimization, database design, migrations | Database development, data analysis |
 
-### ✅ Testing & Quality (5 agents)
+### Testing & Quality (5 agents)
 
 Ensure code quality, security, and comprehensive test coverage.
 
@@ -82,7 +82,7 @@ Ensure code quality, security, and comprehensive test coverage.
 | [**Security Auditor**](agents/testing/security-auditor.agent.md) | Vulnerability scanning, OWASP compliance | Security audits, penetration testing |
 | [**Test Generator**](agents/testing/test-generator.agent.md) | Unit tests, integration tests, coverage | Test creation, TDD/BDD workflows |
 
-### 🎨 Design & UI/UX (4 agents)
+### Design & UI/UX (4 agents)
 
 From design to code, build beautiful user interfaces.
 
@@ -93,7 +93,7 @@ From design to code, build beautiful user interfaces.
 | [**Responsive Design**](agents/design/responsive-design.agent.md) | Mobile-first, accessibility, cross-browser | Responsive web development |
 | [**Design System Builder**](agents/design/design-system.agent.md) | Component libraries, design tokens | Building/maintaining design systems |
 
-### 📝 Productivity (4 agents)
+### Productivity (4 agents)
 
 Plan, research, and document your projects effectively.
 
@@ -104,7 +104,7 @@ Plan, research, and document your projects effectively.
 | [**Task Breakdown**](agents/productivity/task-breakdown.agent.md) | Epic decomposition, story estimation | Agile planning, sprint preparation |
 | [**Doc Generator**](agents/productivity/doc-generator.agent.md) | README, API docs, architecture diagrams | Documentation automation |
 
-### 🚀 DevOps (4 agents)
+### DevOps (4 agents)
 
 Infrastructure, containers, and CI/CD automation.
 
@@ -115,7 +115,7 @@ Infrastructure, containers, and CI/CD automation.
 | [**CI/CD Expert**](agents/devops/cicd-expert.agent.md) | GitHub Actions, GitLab CI, Azure DevOps | Pipeline automation, deployment |
 | [**Terraform Expert**](agents/devops/terraform-expert.agent.md) | Infrastructure as code, state management | Cloud infrastructure, IaC |
 
-### 🐛 Debugging (3 agents)
+### Debugging (3 agents)
 
 Debug issues, optimize performance, and modernize legacy code.
 
@@ -127,7 +127,7 @@ Debug issues, optimize performance, and modernize legacy code.
 
 ---
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### Single Agent Workflow
 
@@ -144,10 +144,10 @@ copilot agent run orchestrator "Build a new user authentication feature with fro
 ```
 
 The Orchestrator will delegate tasks to:
-1. **Backend Developer** → API endpoints and authentication logic
-2. **Frontend Developer** → Login/signup UI components
-3. **Security Auditor** → Security review
-4. **Test Generator** → Unit and integration tests
+1. **Backend Developer**  API endpoints and authentication logic
+2. **Frontend Developer**  Login/signup UI components
+3. **Security Auditor**  Security review
+4. **Test Generator**  Unit and integration tests
 
 ### Design-to-Code Workflow
 
@@ -158,7 +158,7 @@ copilot agent run figma-to-html "Convert this Figma design to React with TypeScr
 
 ---
 
-## 📖 Documentation
+## Documentation
 
 - **[Getting Started Guide](docs/getting-started.md)** - Installation and first agent usage
 - **[Agent Guide](docs/agent-guide.md)** - Detailed usage for each agent
@@ -169,7 +169,7 @@ copilot agent run figma-to-html "Convert this Figma design to React with TypeScr
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 - How to create a new agent
@@ -179,13 +179,13 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🌟 Showcase
+## Showcase
 
 **Built something awesome with these agents?** Share your story!
 - Open a [GitHub Discussion](../../discussions)
@@ -194,10 +194,10 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Inspired by [github/awesome-copilot](https://github.com/github/awesome-copilot) and the amazing Copilot community.
 
 ---
 
-<p align="center">Made with ❤️ by developers, for developers</p>
+<p align="center">Made with  by developers, for developers</p>

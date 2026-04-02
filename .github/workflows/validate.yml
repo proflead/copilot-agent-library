@@ -1,66 +1,66 @@
 name: Validate Agents
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+push:
+  branches: [ main ]
+pull_request:
+  branches: [ main ]
+workflow_dispatch:
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
+validate:
+  runs-on: ubuntu-latest
     
-    steps:
-    - uses: actions/checkout@v4
+  steps:
+  - uses: actions/checkout@v4
     
-    - name: Validate agent files
-      run: |
-        chmod +x scripts/validate-agents.sh
-        ./scripts/validate-agents.sh
+  - name: Validate agent files
+    run: |
+      chmod +x scripts/validate-agents.sh
+      ./scripts/validate-agents.sh
     
-    - name: Count agents
-      run: |
-        AGENT_COUNT=$(find agents -name "*.agent.md" | wc -l)
-        echo "✅ Found $AGENT_COUNT agents"
-        if [ "$AGENT_COUNT" -lt 35 ]; then
-          echo "❌ Expected 35 agents, found $AGENT_COUNT"
+  - name: Count agents
+    run: |
+      AGENT_COUNT=$(find agents -name "*.agent.md" | wc -l)
+      echo " Found $AGENT_COUNT agents"
+      if [ "$AGENT_COUNT" -lt 35 ]; then
+        echo " Expected 35 agents, found $AGENT_COUNT"
+        exit 1
+      fi
+      echo "::notice::Successfully validated $AGENT_COUNT agents"
+    
+  - name: Check documentation
+    run: |
+      REQUIRED_DOCS="README.md CONTRIBUTING.md LICENSE TESTING.md CODE_OF_CONDUCT.md"
+      for doc in $REQUIRED_DOCS; do
+        if [ ! -f "$doc" ]; then
+          echo " Missing required file: $doc"
           exit 1
         fi
-        echo "::notice::Successfully validated $AGENT_COUNT agents"
-    
-    - name: Check documentation
-      run: |
-        REQUIRED_DOCS="README.md CONTRIBUTING.md LICENSE TESTING.md CODE_OF_CONDUCT.md"
-        for doc in $REQUIRED_DOCS; do
-          if [ ! -f "$doc" ]; then
-            echo "❌ Missing required file: $doc"
-            exit 1
-          fi
-        done
-        echo "✅ All required documentation present"
+      done
+      echo " All required documentation present"
         
-    - name: Verify agent structure
-      run: |
-        echo "Checking agent file structure..."
-        ERRORS=0
-        for agent in agents/**/*.agent.md; do
-          if ! head -n 1 "$agent" | grep -q "^---$"; then
-            echo "❌ $agent: Missing YAML frontmatter"
-            ((ERRORS++))
-          fi
-          if ! grep -q "^name:" "$agent"; then
-            echo "❌ $agent: Missing 'name' field"
-            ((ERRORS++))
-          fi
-          if ! grep -q "^description:" "$agent"; then
-            echo "❌ $agent: Missing 'description' field"
-            ((ERRORS++))
-          fi
-        done
-        
-        if [ $ERRORS -gt 0 ]; then
-          echo "❌ Found $ERRORS structural errors"
-          exit 1
+  - name: Verify agent structure
+    run: |
+      echo "Checking agent file structure..."
+      ERRORS=0
+      for agent in agents/**/*.agent.md; do
+        if ! head -n 1 "$agent" | grep -q "^---$"; then
+          echo " $agent: Missing YAML frontmatter"
+          ((ERRORS++))
         fi
-        echo "✅ All agents have proper structure"
+        if ! grep -q "^name:" "$agent"; then
+          echo " $agent: Missing 'name' field"
+          ((ERRORS++))
+        fi
+        if ! grep -q "^description:" "$agent"; then
+          echo " $agent: Missing 'description' field"
+          ((ERRORS++))
+        fi
+      done
+        
+      if [ $ERRORS -gt 0 ]; then
+        echo " Found $ERRORS structural errors"
+        exit 1
+      fi
+      echo " All agents have proper structure"

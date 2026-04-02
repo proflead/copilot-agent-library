@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing! This guide will help you create high-quality agents and submit them to the library.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [How to Contribute](#how-to-contribute)
 - [Agent Quality Standards](#agent-quality-standards)
@@ -40,7 +40,7 @@ All agents must meet these criteria:
 
 ### Required Elements
 
-✅ **Complete Frontmatter**
+ **Complete Frontmatter**
 - `name`: Clear, descriptive agent name
 - `description`: One-line summary of agent purpose
 - `model`: Recommended model (e.g., `claude-sonnet-4.5`, `gpt-4.1`)
@@ -48,7 +48,7 @@ All agents must meet these criteria:
 - `agents`: Sub-agents (if applicable)
 - `handoffs`: Handoff configurations (if applicable)
 
-✅ **Comprehensive Documentation**
+ **Comprehensive Documentation**
 - Clear description of purpose and capabilities
 - Workflow or process description
 - Usage examples for both CLI and IDE
@@ -56,14 +56,14 @@ All agents must meet these criteria:
 - Limitations and constraints
 - Tips for best results
 
-✅ **Testing**
+ **Testing**
 - Tested in CLI environment
 - Tested in IDE (VS Code)
 - Works with specified model
 - Produces expected output
 - Handles edge cases gracefully
 
-✅ **Quality**
+ **Quality**
 - Well-structured prompts
 - Clear, actionable instructions
 - No sensitive data or credentials
@@ -105,10 +105,10 @@ model: claude-sonnet-4.5
 tools: ['read', 'write', 'search', 'bash']
 agents: ['SubAgent1', 'SubAgent2']
 handoffs:
-  - label: Hand off to Expert
-    agent: expert-agent
-    prompt: 'Continue with expert analysis'
-    send: true
+- label: Hand off to Expert
+  agent: expert-agent
+  prompt: 'Continue with expert analysis'
+  send: true
 ---
 ```
 
@@ -229,26 +229,26 @@ When creating agents that coordinate with others:
 
 ```yaml
 handoffs:
-  - label: Delegate to Backend Expert
-    agent: backend-developer
-    prompt: 'Implement the API endpoint described above'
-    send: true
+- label: Delegate to Backend Expert
+  agent: backend-developer
+  prompt: 'Implement the API endpoint described above'
+  send: true
 ```
 
 ### Agent Composition
 
-- **Sequential**: Agent A → Agent B → Agent C
+- **Sequential**: Agent A  Agent B  Agent C
 - **Parallel**: Agent distributes to multiple agents simultaneously
-- **Hierarchical**: Orchestrator → Specialists → Sub-specialists
+- **Hierarchical**: Orchestrator  Specialists  Sub-specialists
 
 ### Example Multi-Agent Workflow
 
 ```
 Orchestrator Agent
-  ├─> Frontend Developer (UI implementation)
-  ├─> Backend Developer (API development)
-  ├─> Database Architect (Schema design)
-  └─> Test Generator (Create tests)
+> Frontend Developer (UI implementation)
+> Backend Developer (API development)
+> Database Architect (Schema design)
+> Test Generator (Create tests)
 ```
 
 ---

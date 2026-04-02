@@ -44,21 +44,21 @@ automation
 
 ### Features to Enable
 
-- ✅ **Issues** - For bug reports and feature requests
-- ✅ **Discussions** - For community Q&A and sharing
-- ✅ **Projects** - Optional, for roadmap tracking
-- ❌ **Wiki** - Not needed (docs are in /docs)
-- ✅ **Sponsorships** - Optional, if you want to accept donations
+- **Issues** - For bug reports and feature requests
+- **Discussions** - For community Q&A and sharing
+- **Projects** - Optional, for roadmap tracking
+- **Wiki** - Not needed (docs are in /docs)
+- **Sponsorships** - Optional, if you want to accept donations
 
 ### General Settings
 
 **Default Branch:** `main`
 
-**Allow merge commits:** ✅ Yes
-**Allow squash merging:** ✅ Yes  
-**Allow rebase merging:** ✅ Yes
+**Allow merge commits:**  Yes
+**Allow squash merging:**  Yes  
+**Allow rebase merging:**  Yes
 
-**Automatically delete head branches:** ✅ Yes (keeps repo clean)
+**Automatically delete head branches:**  Yes (keeps repo clean)
 
 ---
 
@@ -66,45 +66,45 @@ automation
 
 ### Protect `main` branch
 
-**Settings → Branches → Add branch protection rule**
+**Settings  Branches  Add branch protection rule**
 
 **Branch name pattern:** `main`
 
 #### Protection Rules
 
 **Require pull request reviews before merging:**
-- ✅ Enable
+- Enable
 - Required approving reviews: `1`
-- ✅ Dismiss stale pull request approvals when new commits are pushed
-- ❌ Require review from Code Owners (optional, if you add CODEOWNERS)
+- Dismiss stale pull request approvals when new commits are pushed
+- Require review from Code Owners (optional, if you add CODEOWNERS)
 
 **Require status checks to pass before merging:**
-- ✅ Enable
-- ✅ Require branches to be up to date before merging
+- Enable
+- Require branches to be up to date before merging
 - Status checks required:
-  - `validate-agents` (if you set up GitHub Actions)
-  - `lint-markdown` (if you set up linting)
+- `validate-agents` (if you set up GitHub Actions)
+- `lint-markdown` (if you set up linting)
 
 **Require conversation resolution before merging:**
-- ✅ Enable (all comments must be resolved)
+- Enable (all comments must be resolved)
 
 **Require signed commits:**
-- ❌ Optional (stricter security)
+- Optional (stricter security)
 
 **Require linear history:**
-- ❌ Optional (cleaner history, but more restrictive)
+- Optional (cleaner history, but more restrictive)
 
 **Include administrators:**
-- ❌ Disable (so you can merge your own PRs)
+- Disable (so you can merge your own PRs)
 
 **Restrict who can push to matching branches:**
-- ❌ Don't restrict (for solo maintainer)
+- Don't restrict (for solo maintainer)
 
 **Allow force pushes:**
-- ❌ Disable
+- Disable
 
 **Allow deletions:**
-- ❌ Disable
+- Disable
 
 ---
 
@@ -118,43 +118,43 @@ Create `.github/workflows/validate.yml`:
 name: Validate Agents
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+push:
+  branches: [ main ]
+pull_request:
+  branches: [ main ]
+workflow_dispatch:
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
+validate:
+  runs-on: ubuntu-latest
     
-    steps:
-    - uses: actions/checkout@v4
+  steps:
+  - uses: actions/checkout@v4
     
-    - name: Validate agent files
-      run: |
-        chmod +x scripts/validate-agents.sh
-        ./scripts/validate-agents.sh
+  - name: Validate agent files
+    run: |
+      chmod +x scripts/validate-agents.sh
+      ./scripts/validate-agents.sh
     
-    - name: Count agents
-      run: |
-        AGENT_COUNT=$(find agents -name "*.agent.md" | wc -l)
-        echo "✅ Found $AGENT_COUNT agents"
-        if [ "$AGENT_COUNT" -lt 35 ]; then
-          echo "❌ Expected 35 agents, found $AGENT_COUNT"
+  - name: Count agents
+    run: |
+      AGENT_COUNT=$(find agents -name "*.agent.md" | wc -l)
+      echo " Found $AGENT_COUNT agents"
+      if [ "$AGENT_COUNT" -lt 35 ]; then
+        echo " Expected 35 agents, found $AGENT_COUNT"
+        exit 1
+      fi
+    
+  - name: Check documentation
+    run: |
+      REQUIRED_DOCS="README.md CONTRIBUTING.md LICENSE TESTING.md"
+      for doc in $REQUIRED_DOCS; do
+        if [ ! -f "$doc" ]; then
+          echo " Missing required file: $doc"
           exit 1
         fi
-    
-    - name: Check documentation
-      run: |
-        REQUIRED_DOCS="README.md CONTRIBUTING.md LICENSE TESTING.md"
-        for doc in $REQUIRED_DOCS; do
-          if [ ! -f "$doc" ]; then
-            echo "❌ Missing required file: $doc"
-            exit 1
-          fi
-        done
-        echo "✅ All required documentation present"
+      done
+      echo " All required documentation present"
 ```
 
 ### Workflow: Lint Markdown (Optional)
@@ -165,21 +165,21 @@ Create `.github/workflows/lint.yml`:
 name: Lint Markdown
 
 on:
-  pull_request:
-    paths:
-      - '**.md'
+pull_request:
+  paths:
+    - '**.md'
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+lint:
+  runs-on: ubuntu-latest
     
-    steps:
-    - uses: actions/checkout@v4
+  steps:
+  - uses: actions/checkout@v4
     
-    - name: Lint Markdown files
-      uses: DavidAnson/markdownlint-cli2-action@v15
-      with:
-        globs: '**/*.md'
+  - name: Lint Markdown files
+    uses: DavidAnson/markdownlint-cli2-action@v15
+    with:
+      globs: '**/*.md'
 ```
 
 ### Workflow: Auto-label PRs (Optional)
@@ -190,43 +190,43 @@ Create `.github/workflows/labeler.yml`:
 name: Labeler
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+pull_request:
+  types: [opened, synchronize]
 
 jobs:
-  label:
-    runs-on: ubuntu-latest
+label:
+  runs-on: ubuntu-latest
     
-    steps:
-    - uses: actions/labeler@v5
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+  steps:
+  - uses: actions/labeler@v5
+    with:
+      repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 And create `.github/labeler.yml`:
 
 ```yaml
 'documentation':
-  - '**/*.md'
-  - 'docs/**'
+- '**/*.md'
+- 'docs/**'
 
 'agents':
-  - 'agents/**/*.agent.md'
+- 'agents/**/*.agent.md'
 
 'orchestration':
-  - 'agents/orchestration/**'
+- 'agents/orchestration/**'
 
 'fullstack':
-  - 'agents/fullstack/**'
+- 'agents/fullstack/**'
 
 'testing':
-  - 'agents/testing/**'
+- 'agents/testing/**'
 
 'devops':
-  - 'agents/devops/**'
+- 'agents/devops/**'
 
 'scripts':
-  - 'scripts/**'
+- 'scripts/**'
 ```
 
 ---
@@ -235,36 +235,36 @@ And create `.github/labeler.yml`:
 
 ### Create Custom Labels
 
-**Settings → Labels → New label**
+**Settings  Labels  New label**
 
 #### Category: Type
-- 🐛 `bug` - Red (#d73a4a) - "Something isn't working"
-- ✨ `enhancement` - Blue (#a2eeef) - "New feature or request"
-- 📚 `documentation` - Blue (#0075ca) - "Improvements or additions to documentation"
-- ❓ `question` - Pink (#d876e3) - "Further information is requested"
-- 🤝 `help wanted` - Green (#008672) - "Community help wanted"
-- 🎉 `good first issue` - Purple (#7057ff) - "Good for newcomers"
+- `bug` - Red (#d73a4a) - "Something isn't working"
+- `enhancement` - Blue (#a2eeef) - "New feature or request"
+- `documentation` - Blue (#0075ca) - "Improvements or additions to documentation"
+- `question` - Pink (#d876e3) - "Further information is requested"
+- `help wanted` - Green (#008672) - "Community help wanted"
+- `good first issue` - Purple (#7057ff) - "Good for newcomers"
 
 #### Category: Agent Category
-- 🎯 `orchestration` - Orange (#d93f0b)
-- 💻 `fullstack` - Blue (#0e8a16)
-- 🔤 `language` - Yellow (#fbca04)
-- 🧪 `testing` - Green (#0e8a16)
-- 🎨 `design` - Pink (#e99695)
-- 📋 `productivity` - Purple (#5319e7)
-- 🚀 `devops` - Orange (#d93f0b)
-- 🐛 `debugging` - Red (#b60205)
+- `orchestration` - Orange (#d93f0b)
+- `fullstack` - Blue (#0e8a16)
+- `language` - Yellow (#fbca04)
+- `testing` - Green (#0e8a16)
+- `design` - Pink (#e99695)
+- `productivity` - Purple (#5319e7)
+- `devops` - Orange (#d93f0b)
+- `debugging` - Red (#b60205)
 
 #### Category: Status
-- 🔍 `investigating` - Yellow (#fbca04)
-- ✅ `ready` - Green (#0e8a16)
-- 🚫 `wontfix` - White (#ffffff)
-- ⏸️ `on hold` - Gray (#d4c5f9)
-- 🎯 `priority` - Red (#b60205)
+- `investigating` - Yellow (#fbca04)
+- `ready` - Green (#0e8a16)
+- `wontfix` - White (#ffffff)
+- `on hold` - Gray (#d4c5f9)
+- `priority` - Red (#b60205)
 
 #### Category: New Agents
-- 🆕 `new agent` - Green (#0e8a16) - "Proposal for new agent"
-- 🔄 `agent improvement` - Blue (#1d76db) - "Improvement to existing agent"
+- `new agent` - Green (#0e8a16) - "Proposal for new agent"
+- `agent improvement` - Blue (#1d76db) - "Improvement to existing agent"
 
 ---
 
@@ -272,71 +272,71 @@ And create `.github/labeler.yml`:
 
 ### Enable Discussions
 
-**Settings → Features → Discussions → Enable**
+**Settings  Features  Discussions  Enable**
 
 ### Create Categories
 
-1. **📢 Announcements** (Announcement type)
-   - New releases, major updates
-   - Only maintainers can post
+1. ** Announcements** (Announcement type)
+ - New releases, major updates
+ - Only maintainers can post
 
-2. **💡 Ideas** (Discussion type)
-   - New agent ideas
-   - Feature suggestions
+2. ** Ideas** (Discussion type)
+ - New agent ideas
+ - Feature suggestions
 
-3. **🙏 Q&A** (Q&A type)
-   - How to use agents
-   - Troubleshooting help
-   - Best practices
+3. ** Q&A** (Q&A type)
+ - How to use agents
+ - Troubleshooting help
+ - Best practices
 
-4. **💬 General** (Discussion type)
-   - General discussion
-   - Community chat
+4. ** General** (Discussion type)
+ - General discussion
+ - Community chat
 
-5. **🎉 Show and Tell** (Discussion type)
-   - Share what you built
-   - Agent combinations
-   - Success stories
+5. ** Show and Tell** (Discussion type)
+ - Share what you built
+ - Agent combinations
+ - Success stories
 
-6. **🐛 Bugs** (Discussion type)
-   - Bug reports before filing issues
-   - Reproduce steps
+6. ** Bugs** (Discussion type)
+ - Bug reports before filing issues
+ - Reproduce steps
 
 ### Pin Important Discussions
 
 Create and pin these discussions:
 
 1. **"Welcome to Copilot Agent Library!"**
-   ```markdown
-   👋 Welcome!
+ ```markdown
+  Welcome!
    
-   This is the discussion forum for the Copilot Agent Library.
+ This is the discussion forum for the Copilot Agent Library.
    
-   **Quick Links:**
-   - 📖 [Getting Started](../blob/main/docs/getting-started.md)
-   - 📋 [Agent Guide](../blob/main/docs/agent-guide.md)
-   - 🤝 [Contributing](../blob/main/CONTRIBUTING.md)
+ **Quick Links:**
+ - [Getting Started](../blob/main/docs/getting-started.md)
+ - [Agent Guide](../blob/main/docs/agent-guide.md)
+ - [Contributing](../blob/main/CONTRIBUTING.md)
    
-   **How to Get Help:**
-   - ❓ Ask questions in Q&A
-   - 🐛 Report bugs in Issues
-   - 💡 Share ideas in Ideas category
+ **How to Get Help:**
+ - Ask questions in Q&A
+ - Report bugs in Issues
+ - Share ideas in Ideas category
    
-   Happy coding! 🚀
-   ```
+ Happy coding! 
+ ```
 
 2. **"Share Your Use Cases"**
-   ```markdown
-   What are you building with these agents?
+ ```markdown
+ What are you building with these agents?
    
-   Share your:
-   - ✨ Success stories
-   - 🔧 Agent combinations that work well
-   - 💡 Creative use cases
-   - 📊 Productivity improvements
+ Share your:
+ - Success stories
+ - Agent combinations that work well
+ - Creative use cases
+ - Productivity improvements
    
-   Let's learn from each other!
-   ```
+ Let's learn from each other!
+ ```
 
 ---
 
@@ -363,13 +363,13 @@ orchestration
 ```
 
 **How to add:**
-Settings → About → Topics → Add topics
+Settings  About  Topics  Add topics
 
 ---
 
 ## About Section
 
-**Settings → About**
+**Settings  About**
 
 **Description:**
 ```
@@ -381,9 +381,9 @@ Production-ready GitHub Copilot custom agents. 35+ specialized agents for orches
 **Topics:** (see above)
 
 **Include in the home page:**
-- ✅ Releases
-- ✅ Packages (if you publish any)
-- ❌ Deployments (not applicable)
+- Releases
+- Packages (if you publish any)
+- Deployments (not applicable)
 
 ---
 
@@ -391,14 +391,14 @@ Production-ready GitHub Copilot custom agents. 35+ specialized agents for orches
 
 ### Create Social Preview Image
 
-**Settings → Social preview → Upload an image**
+**Settings  Social preview  Upload an image**
 
 **Recommended size:** 1280 x 640 px
 
 **Image should include:**
 - Repository name: "Copilot Agent Library"
 - Tagline: "35+ Production-Ready Copilot Agents"
-- Key features: "Orchestration • Full-Stack • Testing • DevOps"
+- Key features: "Orchestration  Full-Stack  Testing  DevOps"
 - GitHub username/org
 
 **Tool suggestions:**
@@ -424,55 +424,55 @@ Production-ready GitHub Copilot custom agents. 35+ specialized agents for orches
 3. **Description:**
 
 ```markdown
-# 🎉 Copilot Agent Library v1.0.0
+# Copilot Agent Library v1.0.0
 
 The first production release of the Copilot Agent Library!
 
-## 📦 What's Included
+## What's Included
 
 **35 specialized agents across 8 categories:**
 
-### 🎯 Orchestration (3 agents)
+### Orchestration (3 agents)
 - Orchestrator - Multi-agent coordination
 - Workflow Manager - Task automation
 - Project Manager - Sprint planning
 
-### 💻 Full-Stack Development (6 agents)
+### Full-Stack Development (6 agents)
 - Frontend, Backend, Full-Stack Expert
 - Mobile, API Designer, Database Architect
 
-### 🔤 Language Experts (6 agents)
+### Language Experts (6 agents)
 - Python, JavaScript, Rust, Go, Java, SQL
 
-### 🧪 Testing & Quality (5 agents)
+### Testing & Quality (5 agents)
 - E2E Tester, A/B Test Ideas, Code Reviewer
 - Security Auditor, Test Generator
 
-### 🎨 Design & UI/UX (4 agents)
+### Design & UI/UX (4 agents)
 - UI/UX Designer, Figma to HTML
 - Responsive Design, Design System Builder
 
-### 📋 Productivity (4 agents)
+### Productivity (4 agents)
 - Enhanced Planner, Research Agent
 - Task Breakdown, Doc Generator
 
-### 🚀 DevOps (4 agents)
+### DevOps (4 agents)
 - Docker, Kubernetes, CI/CD, Terraform Experts
 
-### 🐛 Debugging (3 agents)
+### Debugging (3 agents)
 - Debug Detective, Performance Optimizer
 - Legacy Modernizer
 
-## 📖 Documentation
+## Documentation
 
-- ✅ Comprehensive [Getting Started](docs/getting-started.md) guide
-- ✅ Detailed [Agent Guide](docs/agent-guide.md) for all 35 agents
-- ✅ [Orchestration Patterns](docs/orchestration-patterns.md)
-- ✅ [Best Practices](docs/best-practices.md)
-- ✅ [Troubleshooting](docs/troubleshooting.md)
-- ✅ [Visual Examples](docs/examples.md)
+- Comprehensive [Getting Started](docs/getting-started.md) guide
+- Detailed [Agent Guide](docs/agent-guide.md) for all 35 agents
+- [Orchestration Patterns](docs/orchestration-patterns.md)
+- [Best Practices](docs/best-practices.md)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Visual Examples](docs/examples.md)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### CLI
 ```bash
@@ -491,18 +491,18 @@ gh copilot agent run orchestrator "Build a REST API"
 2. Reload VS Code window
 3. Use with `@agent-name` in Copilot Chat
 
-## ✅ Quality Assurance
+## Quality Assurance
 
 - All 35 agents validated
 - 52 test scenarios documented
 - Comprehensive testing guide included
 - Production-ready quality standards
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## 📝 License
+## License
 
 MIT License - see [LICENSE](LICENSE)
 
@@ -521,16 +521,16 @@ MIT License - see [LICENSE](LICENSE)
 
 ### Code Security
 
-**Settings → Code security and analysis**
+**Settings  Code security and analysis**
 
-- ✅ **Dependency graph** - Enable
-- ✅ **Dependabot alerts** - Enable (if you add dependencies)
-- ❌ **Code scanning** - Optional (no code to scan)
-- ❌ **Secret scanning** - Optional
+- **Dependency graph** - Enable
+- **Dependabot alerts** - Enable (if you add dependencies)
+- **Code scanning** - Optional (no code to scan)
+- **Secret scanning** - Optional
 
 ### Moderation
 
-**Settings → Moderation**
+**Settings  Moderation**
 
 - Set up **Interaction limits** if spam becomes an issue
 - Set up **Code review limits** if needed
@@ -560,18 +560,18 @@ Add these badges to the top of README.md:
 ## Community Health Files
 
 Already created:
-- ✅ CODE_OF_CONDUCT.md
-- ✅ CONTRIBUTING.md
-- ✅ LICENSE
-- ✅ Issue templates
-- ✅ PR template
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- LICENSE
+- Issue templates
+- PR template
 
 ### Optional additions:
 
 **CODEOWNERS** (if you have specific maintainers):
 ```
 # Default owners for everything
-*       @yourusername
+* @yourusername
 
 # Specific agent categories
 /agents/orchestration/   @yourusername

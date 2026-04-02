@@ -8,7 +8,7 @@ Advanced tips and patterns for getting the most out of your Copilot agents.
 
 Each agent is specialized. Choose wisely:
 
-| Task | ❌ Wrong Agent | ✅ Right Agent |
+| Task |  Wrong Agent |  Right Agent |
 |------|---------------|---------------|
 | Design database schema | Backend Developer | Database Architect |
 | Convert Figma to code | Frontend Developer | Figma to HTML |
@@ -19,12 +19,12 @@ Each agent is specialized. Choose wisely:
 
 The more specific your request, the better the output.
 
-**❌ Too vague:**
+** Too vague:**
 ```bash
 copilot agent run backend-developer "Make an API"
 ```
 
-**✅ Specific:**
+** Specific:**
 ```bash
 copilot agent run backend-developer "Create a RESTful API for a blog platform with:
 - Posts: CRUD operations, pagination, filtering by author
@@ -318,7 +318,7 @@ copilot agent run enhanced-planner "Create 30-day learning plan for new develope
 
 ## Common Anti-Patterns to Avoid
 
-### ❌ Anti-Pattern 1: Using Orchestrator for Simple Tasks
+### Anti-Pattern 1: Using Orchestrator for Simple Tasks
 
 ```bash
 # Bad - overkill for simple task
@@ -328,14 +328,14 @@ copilot agent run orchestrator "Add a console.log statement"
 copilot agent run javascript-expert "Add appropriate logging to this function"
 ```
 
-### ❌ Anti-Pattern 2: Ignoring Agent Limitations
+### Anti-Pattern 2: Ignoring Agent Limitations
 
 Every agent has limits. Don't expect:
 - Security Auditor to find all vulnerabilities
 - Code Reviewer to enforce team-specific conventions it doesn't know
 - Test Generator to know your business logic
 
-### ❌ Anti-Pattern 3: No Human Review
+### Anti-Pattern 3: No Human Review
 
 ```bash
 # Bad - blindly accepting all output
@@ -349,7 +349,7 @@ copilot agent run test-generator "Create tests for the API"
 # Test the tests, then commit
 ```
 
-### ❌ Anti-Pattern 4: Vague Requests
+### Anti-Pattern 4: Vague Requests
 
 ```bash
 # Bad
@@ -359,7 +359,7 @@ copilot agent run frontend-developer "Make it better"
 copilot agent run frontend-developer "Improve accessibility: add ARIA labels, ensure keyboard navigation, increase color contrast to WCAG AA"
 ```
 
-### ❌ Anti-Pattern 5: Not Providing Examples
+### Anti-Pattern 5: Not Providing Examples
 
 ```bash
 # Bad
@@ -396,9 +396,9 @@ copilot agent run frontend-developer "$CONTEXT. API: $API_OUTPUT. Create product
 ```bash
 # Pass work through multiple validators
 copilot agent run backend-developer "Create auth service" | \
-    copilot agent run security-auditor "Review" | \
-    copilot agent run code-reviewer "Final review" | \
-    copilot agent run test-generator "Create tests"
+  copilot agent run security-auditor "Review" | \
+  copilot agent run code-reviewer "Final review" | \
+  copilot agent run test-generator "Create tests"
 ```
 
 ### Technique 3: Spec-Driven Development
