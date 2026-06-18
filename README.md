@@ -1,9 +1,9 @@
 # Copilot Agent Library
 
-A comprehensive collection of **30+ production-ready custom GitHub Copilot agents** for developers, teams, and organizations. Download, customize, and deploy powerful AI agents to supercharge your development workflow.
+A comprehensive collection of **36 production-ready custom GitHub Copilot agents** for developers, teams, and organizations. Download, customize, and deploy powerful AI agents to supercharge your development workflow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Agents](https://img.shields.io/badge/Agents-30+-green.svg)](#agent-categories)
+[![Agents](https://img.shields.io/badge/Agents-36-green.svg)](#agent-categories)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
@@ -124,6 +124,14 @@ Debug issues, optimize performance, and modernize legacy code.
 | [**Debug Detective**](agents/debugging/debug-detective.agent.md) | Error analysis, stack trace interpretation | Debugging, root cause analysis |
 | [**Performance Optimizer**](agents/debugging/performance-optimizer.agent.md) | Profiling, bottleneck identification | Performance tuning, optimization |
 | [**Legacy Modernizer**](agents/debugging/legacy-modernizer.agent.md) | Migration strategies, tech debt reduction | Legacy code refactoring, upgrades |
+
+### Integrations (1 agent)
+
+Connect and automate third-party APIs and services.
+
+| Agent | Description | Use Cases |
+|-------|-------------|-----------|
+| [**Buffer API Expert**](agents/integrations/buffer-api.agent.md) | Social media scheduling and analytics via Buffer GraphQL API | Schedule posts, manage channels, retrieve metrics, build content automations |
 
 ---
 

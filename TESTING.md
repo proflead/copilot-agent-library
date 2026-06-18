@@ -1,6 +1,6 @@
 # Testing Guide for Copilot Agents
 
-Comprehensive testing scenarios and validation checklist for all 35 agents.
+Comprehensive testing scenarios and validation checklist for all 36 agents.
 
 ## Testing Overview
 

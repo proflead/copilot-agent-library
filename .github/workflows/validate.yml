@@ -23,8 +23,8 @@ validate:
     run: |
       AGENT_COUNT=$(find agents -name "*.agent.md" | wc -l)
       echo " Found $AGENT_COUNT agents"
-      if [ "$AGENT_COUNT" -lt 35 ]; then
-        echo " Expected 35 agents, found $AGENT_COUNT"
+      if [ "$AGENT_COUNT" -lt 36 ]; then
+        echo " Expected 36 agents, found $AGENT_COUNT"
         exit 1
       fi
       echo "::notice::Successfully validated $AGENT_COUNT agents"

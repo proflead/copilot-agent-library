@@ -1,6 +1,6 @@
 # Comprehensive Agent Guide
 
-Detailed documentation for all 35 agents in the library, organized by category.
+Detailed documentation for all 36 agents in the library, organized by category.
 
 ## Quick Navigation
 
