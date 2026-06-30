@@ -1,9 +1,9 @@
 # Copilot Agent Library
 
-A comprehensive collection of **36 production-ready custom GitHub Copilot agents** for developers, teams, and organizations. Download, customize, and deploy powerful AI agents to supercharge your development workflow.
+A comprehensive collection of **37 production-ready custom GitHub Copilot agents** for developers, teams, and organizations. Download, customize, and deploy powerful AI agents to supercharge your development workflow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Agents](https://img.shields.io/badge/Agents-36-green.svg)](#agent-categories)
+[![Agents](https://img.shields.io/badge/Agents-37-green.svg)](#agent-categories)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
@@ -93,7 +93,7 @@ From design to code, build beautiful user interfaces.
 | [**Responsive Design**](agents/design/responsive-design.agent.md) | Mobile-first, accessibility, cross-browser | Responsive web development |
 | [**Design System Builder**](agents/design/design-system.agent.md) | Component libraries, design tokens | Building/maintaining design systems |
 
-### Productivity (4 agents)
+### Productivity (5 agents)
 
 Plan, research, and document your projects effectively.
 
@@ -103,6 +103,7 @@ Plan, research, and document your projects effectively.
 | [**Research Agent**](agents/productivity/research-agent.agent.md) | Web research, documentation synthesis | Technical research, competitive analysis |
 | [**Task Breakdown**](agents/productivity/task-breakdown.agent.md) | Epic decomposition, story estimation | Agile planning, sprint preparation |
 | [**Doc Generator**](agents/productivity/doc-generator.agent.md) | README, API docs, architecture diagrams | Documentation automation |
+| [**Bright Data Rapid Agent**](agents/productivity/brightdata-rapid-agent.agent.md) | Real-time web research via Bright Data MCP — search, discover, and scrape | Live fact-checking, URL scraping, batch search across topics |
 
 ### DevOps (4 agents)
 
